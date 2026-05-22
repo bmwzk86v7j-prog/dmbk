@@ -1,21 +1,22 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-
-const nav = [
-  { to: "/", label: "Home" },
-  { to: "/o-firmie", label: "O firmie" },
-  { to: "/produkty", label: "Produkty" },
-  { to: "/galeria", label: "Galeria" },
-  { to: "/wycena", label: "Wycena" },
-  { to: "/kontakt", label: "Kontakt" },
-] as const;
+import { useI18n } from "@/i18n/I18nProvider";
 
 const langs = ["PL", "EN", "DE"] as const;
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
-  const [lang, setLang] = useState<(typeof langs)[number]>("PL");
+  const { lang, setLang, t } = useI18n();
+
+  const nav = [
+    { to: "/", label: t("nav_home") },
+    { to: "/o-firmie", label: t("nav_about") },
+    { to: "/produkty", label: t("nav_products") },
+    { to: "/galeria", label: t("nav_gallery") },
+    { to: "/wycena", label: t("nav_quote") },
+    { to: "/kontakt", label: t("nav_contact") },
+  ] as const;
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">

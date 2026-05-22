@@ -7,7 +7,8 @@ import ballastImg from "@/assets/product-ballast.jpg";
 import bucketImg from "@/assets/product-bucket.jpg";
 import constructionImg from "@/assets/product-construction.jpg";
 import specialImg from "@/assets/product-special.jpg";
-import heroImg from "@/assets/hero-ballast.jpg";
+import heroImg from "@/assets/hero-ballast.png";
+import { useI18n } from "@/i18n/I18nProvider";
 
 export const Route = createFileRoute("/galeria")({
   head: () => ({
@@ -22,28 +23,27 @@ export const Route = createFileRoute("/galeria")({
   component: Gallery,
 });
 
-const items = [
-  { src: welderImg, alt: "Spawacz przy pracy", span: "lg:col-span-2 lg:row-span-2" },
-  { src: weldImg, alt: "Spaw MIG/MAG" },
-  { src: heroImg, alt: "Balast zielony" },
-  { src: hallImg, alt: "Hala produkcyjna", span: "lg:col-span-2" },
-  { src: bucketImg, alt: "Łyżka koparkowa" },
-  { src: ballastImg, alt: "Balasty na palecie" },
-  { src: constructionImg, alt: "Konstrukcja stalowa" },
-  { src: specialImg, alt: "Projekt specjalny" },
-];
-
 function Gallery() {
+  const { t } = useI18n();
+  const items = [
+    { src: welderImg, alt: "Spawacz", span: "lg:col-span-2 lg:row-span-2" },
+    { src: weldImg, alt: "Spaw MIG/MAG" },
+    { src: heroImg, alt: "Balast DMBK" },
+    { src: hallImg, alt: "Hala produkcyjna", span: "lg:col-span-2" },
+    { src: bucketImg, alt: "Łyżka koparkowa" },
+    { src: ballastImg, alt: "Balasty" },
+    { src: constructionImg, alt: "Konstrukcja stalowa" },
+    { src: specialImg, alt: "Projekt specjalny" },
+  ];
+
   return (
     <SiteLayout>
       <section className="container-x py-20 lg:py-24">
-        <span className="text-xs uppercase tracking-[0.25em] text-primary">/ Galeria</span>
+        <span className="text-xs uppercase tracking-[0.25em] text-primary">{t("gal_kicker")}</span>
         <h1 className="mt-4 font-display text-5xl lg:text-6xl uppercase max-w-3xl">
-          Stal w kadrze
+          {t("gal_title")}
         </h1>
-        <p className="mt-4 max-w-2xl text-muted-foreground">
-          Produkty, spawy, hala i proces produkcji. Zobacz, jak powstaje konstrukcja DMBK.
-        </p>
+        <p className="mt-4 max-w-2xl text-muted-foreground">{t("gal_intro")}</p>
 
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 auto-rows-[220px] lg:auto-rows-[260px]">
           {items.map((it) => (
