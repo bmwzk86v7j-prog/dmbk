@@ -20,7 +20,7 @@ const dict = {
     // home
     home_kicker: "Steel works since day one",
     home_subtitle: "Konstrukcje stalowe i profesjonalna produkcja osprzętu",
-    home_categories: "Balasty • Łyżki • Konstrukcje stalowe • Produkcja własna",
+    home_categories: "Balasty • Osprzęt rolniczy i przemysłowy • Konstrukcje stalowe • Produkcja na zamówienie",
     home_cta_products: "Zobacz produkty",
     home_cta_quote: "Wycena online",
     home_made_pl: "Made in PL",
@@ -41,20 +41,34 @@ const dict = {
     feat_durable: "Trwałość",
     feat_durable_desc: "Materiały i wykonanie odpowiadające ciężkiej pracy.",
 
-    cat_ballast: "Balasty do traktorów",
-    cat_bucket: "Łyżki do koparek",
+    cat_ballast: "Balasty do ciągników",
+    cat_bucket: "Osprzęt rolniczy i przemysłowy",
     cat_construction: "Konstrukcje stalowe",
-    cat_special: "Projekty specjalne",
+    cat_special: "Produkcja na zamówienie",
 
     // products
     prod_kicker: "/ Katalog",
     prod_title: "Produkty",
     prod_intro: "Pełna produkcja własna w czterech głównych kategoriach. Każdy element wykonujemy z naciskiem na jakość spawów i trwałość konstrukcji.",
-    prod_ballast_desc: "Ciężkie obciążniki przednie poprawiające stabilność i przyczepność maszyn rolniczych.",
-    prod_bucket_desc: "Trwałe łyżki podsiębierne i skarpowe wykonane z hardoxa lub stali konstrukcyjnej.",
+    prod_ballast_desc: "Ciężkie obciążniki przednie poprawiające stabilność i przyczepność ciągników i maszyn rolniczych.",
+    prod_bucket_desc: "Spychy do kiszonki i kamieni, osprzęt do drewna oraz duże łyżki do maszyn przemysłowych i rolniczych.",
     prod_construction_desc: "Ramy, wsporniki, hale, podesty — pełna produkcja od projektu po malowanie.",
-    prod_special_desc: "Nietypowe zlecenia, prototypy, indywidualne osprzęty pod wymiar klienta.",
+    prod_special_desc: "Realizacja indywidualnych projektów według rysunku klienta. Prototypy, krótkie serie, nietypowe osprzęty.",
     prod_ask: "Zapytaj o wycenę",
+
+    // shipping
+    shipping_kicker: "/ 02 — Logistyka",
+    shipping_title: "Dostawa na terenie całej Europy",
+    shipping_desc: "Profesjonalny transport konstrukcji stalowych i osprzętu. Bez względu na gabaryty — dowozimy bezpiecznie i na czas.",
+    shipping_europe: "Europa",
+    shipping_europe_desc: "Dostawy do każdego kraju UE oraz Europy Wschodniej. Pełna dokumentacja transportowa.",
+    shipping_logistics: "Logistyka B2B",
+    shipping_logistics_desc: "Współpracujemy z renomowanymi przewoźnikami. Fracht, naczepy, kontenery — dopasowane do ładunku.",
+    shipping_time: "Terminowość",
+    shipping_time_desc: "Ustalamy realne terminy i dotrzymujemy ich. Śledzenie przesyłki na bieżąco.",
+    shipping_safe: "Bezpieczeństwo",
+    shipping_safe_desc: "Staranne zabezpieczenie ładunku. Ubezpieczenie transportu do pełnej wartości.",
+    shipping_cta: "Zapytaj o transport",
 
     // about
     about_kicker: "/ O firmie",
