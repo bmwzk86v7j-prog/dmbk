@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Hammer, Cog, Factory, ShieldCheck } from "lucide-react";
+import { ArrowRight, Hammer, Cog, Factory, ShieldCheck, Truck, Ship, Clock } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
 import heroImg from "@/assets/hero-ballast.png";
 import ballastImg from "@/assets/product-ballast.jpg";
@@ -129,6 +129,39 @@ function Index() {
               </div>
             </Link>
           ))}
+        </div>
+      </section>
+
+      <section className="border-t border-border bg-card">
+        <div className="container-x py-20 lg:py-24">
+          <span className="text-xs uppercase tracking-[0.25em] text-primary">{t("shipping_kicker")}</span>
+          <h2 className="mt-4 font-display text-4xl lg:text-5xl uppercase max-w-3xl">{t("shipping_title")}</h2>
+          <p className="mt-4 max-w-2xl text-muted-foreground">{t("shipping_desc")}</p>
+
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border">
+            {[
+              { icon: Truck, title: t("shipping_europe"), desc: t("shipping_europe_desc") },
+              { icon: Ship, title: t("shipping_logistics"), desc: t("shipping_logistics_desc") },
+              { icon: Clock, title: t("shipping_time"), desc: t("shipping_time_desc") },
+              { icon: ShieldCheck, title: t("shipping_safe"), desc: t("shipping_safe_desc") },
+            ].map((f) => (
+              <div key={f.title} className="bg-background p-8 lg:p-10">
+                <f.icon size={28} className="text-primary" strokeWidth={1.5} />
+                <div className="mt-5 font-display text-xl uppercase tracking-wider">{f.title}</div>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10">
+            <Link
+              to="/kontakt"
+              className="group inline-flex items-center gap-2 bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-wider text-primary-foreground transition-transform hover:-translate-y-0.5"
+            >
+              {t("shipping_cta")}
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
         </div>
       </section>
 
