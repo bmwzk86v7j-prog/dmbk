@@ -11,9 +11,9 @@ export const Route = createFileRoute("/produkty")({
   head: () => ({
     meta: [
       { title: "Produkty — DMBK" },
-      { name: "description", content: "Katalog produktów DMBK: balasty do traktorów, łyżki do koparek, konstrukcje stalowe, projekty specjalne." },
+      { name: "description", content: "Katalog produktów DMBK: balasty do ciągników, osprzęt rolniczy i przemysłowy, konstrukcje stalowe, produkcja na zamówienie." },
       { property: "og:title", content: "Produkty DMBK" },
-      { property: "og:description", content: "Balasty, łyżki, konstrukcje stalowe, projekty specjalne." },
+      { property: "og:description", content: "Balasty, osprzęt rolniczy i przemysłowy, konstrukcje stalowe, produkcja na zamówienie." },
       { property: "og:image", content: ballastImg },
     ],
   }),
