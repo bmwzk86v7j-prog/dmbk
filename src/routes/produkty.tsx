@@ -28,13 +28,13 @@ function Products() {
       title: t("cat_ballast"),
       img: ballastImg,
       desc: t("prod_ballast_desc"),
-      params: ["200–1500 kg", "TUZ", "Lakier proszkowy"],
+      params: ["200–1500 kg", "TUZ / CAT", "Lakier proszkowy"],
     },
     {
       title: t("cat_bucket"),
       img: bucketImg,
       desc: t("prod_bucket_desc"),
-      params: ["30–200 cm", "Esco / standard", "Hardox"],
+      params: ["Spychy do kiszonki", "Spychy do kamieni", "Osprzęt do drewna", "Duże łyżki przemysłowe"],
     },
     {
       title: t("cat_construction"),
