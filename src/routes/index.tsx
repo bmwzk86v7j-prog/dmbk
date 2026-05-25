@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Hammer, Cog, Factory, ShieldCheck } from "lucide-react";
+import { ArrowRight, Hammer, Cog, Factory, ShieldCheck, Truck, Ship, Clock } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
 import heroImg from "@/assets/hero-ballast.png";
 import ballastImg from "@/assets/product-ballast.jpg";
