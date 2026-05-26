@@ -15,6 +15,12 @@ import { Route as OFirmieRouteImport } from './routes/o-firmie'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as GaleriaRouteImport } from './routes/galeria'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProduktyProdukcjaNaZamowienieRouteImport } from './routes/produkty.produkcja-na-zamowienie'
+import { Route as ProduktyOsprzetRouteImport } from './routes/produkty.osprzet'
+import { Route as ProduktyKonstrukcjeStaloweRouteImport } from './routes/produkty.konstrukcje-stalowe'
+import { Route as ProduktyBalastyRouteImport } from './routes/produkty.balasty'
+import { Route as ProduktyBalastyZakrzywioneRouteImport } from './routes/produkty.balasty.zakrzywione'
+import { Route as ProduktyBalastyProsteRouteImport } from './routes/produkty.balasty.proste'
 
 const WycenaRoute = WycenaRouteImport.update({
   id: '/wycena',
@@ -46,22 +52,67 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProduktyProdukcjaNaZamowienieRoute =
+  ProduktyProdukcjaNaZamowienieRouteImport.update({
+    id: '/produkcja-na-zamowienie',
+    path: '/produkcja-na-zamowienie',
+    getParentRoute: () => ProduktyRoute,
+  } as any)
+const ProduktyOsprzetRoute = ProduktyOsprzetRouteImport.update({
+  id: '/osprzet',
+  path: '/osprzet',
+  getParentRoute: () => ProduktyRoute,
+} as any)
+const ProduktyKonstrukcjeStaloweRoute =
+  ProduktyKonstrukcjeStaloweRouteImport.update({
+    id: '/konstrukcje-stalowe',
+    path: '/konstrukcje-stalowe',
+    getParentRoute: () => ProduktyRoute,
+  } as any)
+const ProduktyBalastyRoute = ProduktyBalastyRouteImport.update({
+  id: '/balasty',
+  path: '/balasty',
+  getParentRoute: () => ProduktyRoute,
+} as any)
+const ProduktyBalastyZakrzywioneRoute =
+  ProduktyBalastyZakrzywioneRouteImport.update({
+    id: '/zakrzywione',
+    path: '/zakrzywione',
+    getParentRoute: () => ProduktyBalastyRoute,
+  } as any)
+const ProduktyBalastyProsteRoute = ProduktyBalastyProsteRouteImport.update({
+  id: '/proste',
+  path: '/proste',
+  getParentRoute: () => ProduktyBalastyRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/galeria': typeof GaleriaRoute
   '/kontakt': typeof KontaktRoute
   '/o-firmie': typeof OFirmieRoute
-  '/produkty': typeof ProduktyRoute
+  '/produkty': typeof ProduktyRouteWithChildren
   '/wycena': typeof WycenaRoute
+  '/produkty/balasty': typeof ProduktyBalastyRouteWithChildren
+  '/produkty/konstrukcje-stalowe': typeof ProduktyKonstrukcjeStaloweRoute
+  '/produkty/osprzet': typeof ProduktyOsprzetRoute
+  '/produkty/produkcja-na-zamowienie': typeof ProduktyProdukcjaNaZamowienieRoute
+  '/produkty/balasty/proste': typeof ProduktyBalastyProsteRoute
+  '/produkty/balasty/zakrzywione': typeof ProduktyBalastyZakrzywioneRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/galeria': typeof GaleriaRoute
   '/kontakt': typeof KontaktRoute
   '/o-firmie': typeof OFirmieRoute
-  '/produkty': typeof ProduktyRoute
+  '/produkty': typeof ProduktyRouteWithChildren
   '/wycena': typeof WycenaRoute
+  '/produkty/balasty': typeof ProduktyBalastyRouteWithChildren
+  '/produkty/konstrukcje-stalowe': typeof ProduktyKonstrukcjeStaloweRoute
+  '/produkty/osprzet': typeof ProduktyOsprzetRoute
+  '/produkty/produkcja-na-zamowienie': typeof ProduktyProdukcjaNaZamowienieRoute
+  '/produkty/balasty/proste': typeof ProduktyBalastyProsteRoute
+  '/produkty/balasty/zakrzywione': typeof ProduktyBalastyZakrzywioneRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -69,8 +120,14 @@ export interface FileRoutesById {
   '/galeria': typeof GaleriaRoute
   '/kontakt': typeof KontaktRoute
   '/o-firmie': typeof OFirmieRoute
-  '/produkty': typeof ProduktyRoute
+  '/produkty': typeof ProduktyRouteWithChildren
   '/wycena': typeof WycenaRoute
+  '/produkty/balasty': typeof ProduktyBalastyRouteWithChildren
+  '/produkty/konstrukcje-stalowe': typeof ProduktyKonstrukcjeStaloweRoute
+  '/produkty/osprzet': typeof ProduktyOsprzetRoute
+  '/produkty/produkcja-na-zamowienie': typeof ProduktyProdukcjaNaZamowienieRoute
+  '/produkty/balasty/proste': typeof ProduktyBalastyProsteRoute
+  '/produkty/balasty/zakrzywione': typeof ProduktyBalastyZakrzywioneRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,8 +138,26 @@ export interface FileRouteTypes {
     | '/o-firmie'
     | '/produkty'
     | '/wycena'
+    | '/produkty/balasty'
+    | '/produkty/konstrukcje-stalowe'
+    | '/produkty/osprzet'
+    | '/produkty/produkcja-na-zamowienie'
+    | '/produkty/balasty/proste'
+    | '/produkty/balasty/zakrzywione'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/galeria' | '/kontakt' | '/o-firmie' | '/produkty' | '/wycena'
+  to:
+    | '/'
+    | '/galeria'
+    | '/kontakt'
+    | '/o-firmie'
+    | '/produkty'
+    | '/wycena'
+    | '/produkty/balasty'
+    | '/produkty/konstrukcje-stalowe'
+    | '/produkty/osprzet'
+    | '/produkty/produkcja-na-zamowienie'
+    | '/produkty/balasty/proste'
+    | '/produkty/balasty/zakrzywione'
   id:
     | '__root__'
     | '/'
@@ -91,6 +166,12 @@ export interface FileRouteTypes {
     | '/o-firmie'
     | '/produkty'
     | '/wycena'
+    | '/produkty/balasty'
+    | '/produkty/konstrukcje-stalowe'
+    | '/produkty/osprzet'
+    | '/produkty/produkcja-na-zamowienie'
+    | '/produkty/balasty/proste'
+    | '/produkty/balasty/zakrzywione'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -98,7 +179,7 @@ export interface RootRouteChildren {
   GaleriaRoute: typeof GaleriaRoute
   KontaktRoute: typeof KontaktRoute
   OFirmieRoute: typeof OFirmieRoute
-  ProduktyRoute: typeof ProduktyRoute
+  ProduktyRoute: typeof ProduktyRouteWithChildren
   WycenaRoute: typeof WycenaRoute
 }
 
@@ -146,15 +227,89 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/produkty/produkcja-na-zamowienie': {
+      id: '/produkty/produkcja-na-zamowienie'
+      path: '/produkcja-na-zamowienie'
+      fullPath: '/produkty/produkcja-na-zamowienie'
+      preLoaderRoute: typeof ProduktyProdukcjaNaZamowienieRouteImport
+      parentRoute: typeof ProduktyRoute
+    }
+    '/produkty/osprzet': {
+      id: '/produkty/osprzet'
+      path: '/osprzet'
+      fullPath: '/produkty/osprzet'
+      preLoaderRoute: typeof ProduktyOsprzetRouteImport
+      parentRoute: typeof ProduktyRoute
+    }
+    '/produkty/konstrukcje-stalowe': {
+      id: '/produkty/konstrukcje-stalowe'
+      path: '/konstrukcje-stalowe'
+      fullPath: '/produkty/konstrukcje-stalowe'
+      preLoaderRoute: typeof ProduktyKonstrukcjeStaloweRouteImport
+      parentRoute: typeof ProduktyRoute
+    }
+    '/produkty/balasty': {
+      id: '/produkty/balasty'
+      path: '/balasty'
+      fullPath: '/produkty/balasty'
+      preLoaderRoute: typeof ProduktyBalastyRouteImport
+      parentRoute: typeof ProduktyRoute
+    }
+    '/produkty/balasty/zakrzywione': {
+      id: '/produkty/balasty/zakrzywione'
+      path: '/zakrzywione'
+      fullPath: '/produkty/balasty/zakrzywione'
+      preLoaderRoute: typeof ProduktyBalastyZakrzywioneRouteImport
+      parentRoute: typeof ProduktyBalastyRoute
+    }
+    '/produkty/balasty/proste': {
+      id: '/produkty/balasty/proste'
+      path: '/proste'
+      fullPath: '/produkty/balasty/proste'
+      preLoaderRoute: typeof ProduktyBalastyProsteRouteImport
+      parentRoute: typeof ProduktyBalastyRoute
+    }
   }
 }
+
+interface ProduktyBalastyRouteChildren {
+  ProduktyBalastyProsteRoute: typeof ProduktyBalastyProsteRoute
+  ProduktyBalastyZakrzywioneRoute: typeof ProduktyBalastyZakrzywioneRoute
+}
+
+const ProduktyBalastyRouteChildren: ProduktyBalastyRouteChildren = {
+  ProduktyBalastyProsteRoute: ProduktyBalastyProsteRoute,
+  ProduktyBalastyZakrzywioneRoute: ProduktyBalastyZakrzywioneRoute,
+}
+
+const ProduktyBalastyRouteWithChildren = ProduktyBalastyRoute._addFileChildren(
+  ProduktyBalastyRouteChildren,
+)
+
+interface ProduktyRouteChildren {
+  ProduktyBalastyRoute: typeof ProduktyBalastyRouteWithChildren
+  ProduktyKonstrukcjeStaloweRoute: typeof ProduktyKonstrukcjeStaloweRoute
+  ProduktyOsprzetRoute: typeof ProduktyOsprzetRoute
+  ProduktyProdukcjaNaZamowienieRoute: typeof ProduktyProdukcjaNaZamowienieRoute
+}
+
+const ProduktyRouteChildren: ProduktyRouteChildren = {
+  ProduktyBalastyRoute: ProduktyBalastyRouteWithChildren,
+  ProduktyKonstrukcjeStaloweRoute: ProduktyKonstrukcjeStaloweRoute,
+  ProduktyOsprzetRoute: ProduktyOsprzetRoute,
+  ProduktyProdukcjaNaZamowienieRoute: ProduktyProdukcjaNaZamowienieRoute,
+}
+
+const ProduktyRouteWithChildren = ProduktyRoute._addFileChildren(
+  ProduktyRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   GaleriaRoute: GaleriaRoute,
   KontaktRoute: KontaktRoute,
   OFirmieRoute: OFirmieRoute,
-  ProduktyRoute: ProduktyRoute,
+  ProduktyRoute: ProduktyRouteWithChildren,
   WycenaRoute: WycenaRoute,
 }
 export const routeTree = rootRouteImport

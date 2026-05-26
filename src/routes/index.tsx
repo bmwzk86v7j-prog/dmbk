@@ -23,10 +23,10 @@ function Index() {
   const { t } = useI18n();
 
   const categories = [
-    { title: t("cat_ballast"), img: ballastImg, to: "/produkty" as const },
-    { title: t("cat_bucket"), img: bucketImg, to: "/produkty" as const },
-    { title: t("cat_construction"), img: constructionImg, to: "/produkty" as const },
-    { title: t("cat_special"), img: specialImg, to: "/produkty" as const },
+    { title: t("cat_ballast"), img: ballastImg, to: "/produkty/balasty" as const },
+    { title: t("cat_bucket"), img: bucketImg, to: "/produkty/osprzet" as const },
+    { title: t("cat_construction"), img: constructionImg, to: "/produkty/konstrukcje-stalowe" as const },
+    { title: t("cat_special"), img: specialImg, to: "/produkty/produkcja-na-zamowienie" as const },
   ];
 
   const features = [
