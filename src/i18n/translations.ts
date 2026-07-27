@@ -61,7 +61,7 @@ const dict = {
 
     // catalog cards
     cat_ballast_subtitle: "Do ciągników i maszyn rolniczych",
-    cat_ballast_desc: "Ciężkie obciążniki przednie 300–1800 kg. Wersje proste i zakrzywione, lakierowanie proszkowe, opcjonalne LED i personalizacja.",
+    cat_ballast_desc: "Obciążniki przednie 300–1800 kg. Wersje proste i zakrzywione, lakierowanie proszkowe, opcjonalne LED i personalizacja.",
     cat_bucket_subtitle: "Spychy, łyżki, osprzęt do drewna",
     cat_bucket_desc: "Wytrzymały osprzęt do maszyn rolniczych i przemysłowych. Spychy do kiszonki i kamieni, osprzęt do drewna, duże łyżki.",
     cat_construction_subtitle: "Projektowanie i produkcja",
