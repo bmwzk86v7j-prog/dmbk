@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Hammer, Cog, Factory, ShieldCheck, Truck, Ship, Clock } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
 import heroImg from "@/assets/hero-ballast.png";
+import logoImg from "@/assets/dmbk-logo.png";
+
 import ballastImg from "@/assets/product-ballast.jpg";
 import bucketImg from "@/assets/product-bucket.jpg";
 import constructionImg from "@/assets/product-construction.jpg";
@@ -84,6 +86,13 @@ function Index() {
           </div>
         </div>
       </section>
+
+      <section className="border-b border-border">
+        <div className="container-x py-12 lg:py-16 flex justify-center">
+          <img src={logoImg} alt="DMBK" className="h-20 lg:h-28 w-auto invert" />
+        </div>
+      </section>
+
 
       <section className="border-b border-border bg-card">
         <div className="container-x grid grid-cols-2 lg:grid-cols-4">
