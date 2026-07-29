@@ -20,11 +20,14 @@ export const Route = createFileRoute("/produkty/balasty/$type/$weight")({
   },
   head: ({ params }) => {
     const label = TYPES[params.type as TypeKey] ?? "Balast";
+    const title = `Balast ${params.weight} kg — ${label} | DMBK`;
+    const description = `Balast ${params.weight} kg — ${label.toLowerCase()}. Konfigurator: wersja prosta lub przeginana, opcjonalna skrzynka narzędziowa.`;
     return {
       meta: [
-        { title: `Balast ${params.weight} kg — ${label} | DMBK` },
-        { name: "description", content: `Balast ${params.weight} kg — ${label.toLowerCase()}. Konfigurator: wersja prosta lub przeginana, opcjonalna skrzynka narzędziowa.` },
-        { property: "og:image", content: ballastImg },
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
       ],
     };
   },

@@ -19,6 +19,11 @@ export const Route = createFileRoute("/produkty/balasty/$type/")({
           name: "description",
           content: `${label} DMBK — dostępne modele od 300 do 1800 kg. Konfiguracja: prosty / przeginany, ze skrzynką lub bez.`,
         },
+        { property: "og:title", content: `${label} DMBK — modele 300–1800 kg` },
+        {
+          property: "og:description",
+          content: `${label}: wybierz model balastu i skonfiguruj wersję prostą lub przeginaną oraz opcję skrzynki.`,
+        },
       ],
     };
   },
