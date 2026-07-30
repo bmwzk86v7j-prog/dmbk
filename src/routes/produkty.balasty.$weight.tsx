@@ -5,23 +5,20 @@ import { useMemo, useState } from "react";
 import ballastImg from "@/assets/product-ballast.jpg";
 
 const WEIGHTS = [300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400, 1600, 1800] as const;
-const TYPES = { przednie: "Balasty przednie", tylne: "Balasty tylne" } as const;
-type TypeKey = keyof typeof TYPES;
 
 type Shape = "prosty" | "przeginany";
 type Box = "bez" | "ze";
 
-export const Route = createFileRoute("/produkty/balasty/$type/$weight")({
+export const Route = createFileRoute("/produkty/balasty/$weight")({
   beforeLoad: ({ params }) => {
     const w = Number(params.weight);
-    if (!(params.type in TYPES) || !WEIGHTS.includes(w as (typeof WEIGHTS)[number])) {
+    if (!WEIGHTS.includes(w as (typeof WEIGHTS)[number])) {
       throw notFound();
     }
   },
   head: ({ params }) => {
-    const label = TYPES[params.type as TypeKey] ?? "Balast";
-    const title = `Balast ${params.weight} kg — ${label} | DMBK`;
-    const description = `Balast ${params.weight} kg — ${label.toLowerCase()}. Konfigurator: wersja prosta lub przeginana, opcjonalna skrzynka narzędziowa.`;
+    const title = `Balast ${params.weight} kg — balasty do ciągników | DMBK`;
+    const description = `Balast ${params.weight} kg do ciągnika. Konfigurator: wersja prosta lub przeginana, opcjonalna skrzynka narzędziowa.`;
     return {
       meta: [
         { title },
@@ -37,8 +34,7 @@ export const Route = createFileRoute("/produkty/balasty/$type/$weight")({
 const gallery = [ballastImg, ballastImg, ballastImg, ballastImg];
 
 function BalastProduct() {
-  const { type, weight } = Route.useParams();
-  const label = TYPES[type as TypeKey];
+  const { weight } = Route.useParams();
   const w = Number(weight);
 
   const bendAvailable = w >= 600 && w <= 1800;
@@ -50,14 +46,14 @@ function BalastProduct() {
   const specs: [string, string][] = useMemo(
     () => [
       ["Waga", `${w} kg`],
-      ["Montaż", type === "przednie" ? "TUZ przedni kat. II / III" : "TUZ tylny kat. II / III"],
+      ["Montaż", "TUZ kat. II / III"],
       ["Geometria", shape === "prosty" ? "Prosta" : "Przeginana / profilowana"],
       ["Skrzynka", box === "ze" ? "Zintegrowana skrzynka narzędziowa" : "Brak"],
       ["Lakierowanie", "Proszkowe, RAL na życzenie"],
       ["Opcje", "LED, personalizacja, logo"],
       ["Materiał", "Stal konstrukcyjna"],
     ],
-    [w, type, shape, box],
+    [w, shape, box],
   );
 
   return (
@@ -67,8 +63,6 @@ function BalastProduct() {
           <Link to="/produkty" className="hover:text-primary">Produkty</Link>
           <ChevronRight size={12} className="inline mx-2" />
           <Link to="/produkty/balasty" className="hover:text-primary">Balasty</Link>
-          <ChevronRight size={12} className="inline mx-2" />
-          <Link to="/produkty/balasty/$type" params={{ type }} className="hover:text-primary">{label}</Link>
           <ChevronRight size={12} className="inline mx-2" />
           <span className="text-foreground">Balast {w} kg</span>
         </div>
@@ -90,12 +84,12 @@ function BalastProduct() {
         </div>
 
         <div>
-          <span className="text-xs uppercase tracking-[0.25em] text-primary">/ {label}</span>
+          <span className="text-xs uppercase tracking-[0.25em] text-primary">/ Balasty do ciągników</span>
           <h1 className="mt-3 font-display text-4xl lg:text-5xl uppercase leading-tight">
             Balast {w} <span className="text-primary">kg</span>
           </h1>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Obciążnik do ciągników — {label.toLowerCase()}. Skonfiguruj wersję i opcje dodatkowe.
+            Obciążnik do ciągników. Skonfiguruj wersję i opcje dodatkowe.
             Wszystkie balasty wykonujemy ze stali konstrukcyjnej, malowane proszkowo.
           </p>
 
@@ -155,8 +149,7 @@ function BalastProduct() {
               Zapytaj o wycenę <ArrowRight size={16} />
             </Link>
             <Link
-              to="/produkty/balasty/$type"
-              params={{ type }}
+              to="/produkty/balasty"
               className="inline-flex items-center gap-2 border border-border px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:border-primary hover:text-primary transition-colors"
             >
               Wróć do listy
