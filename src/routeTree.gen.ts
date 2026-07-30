@@ -22,9 +22,6 @@ import { Route as ProduktyKonstrukcjeStaloweRouteImport } from './routes/produkt
 import { Route as ProduktyBalastyRouteImport } from './routes/produkty.balasty'
 import { Route as ProduktyBalastyIndexRouteImport } from './routes/produkty.balasty.index'
 import { Route as ProduktyBalastyWeightRouteImport } from './routes/produkty.balasty.$weight'
-import { Route as ProduktyBalastyTypeRouteImport } from './routes/produkty.balasty.$type'
-import { Route as ProduktyBalastyTypeIndexRouteImport } from './routes/produkty.balasty.$type.index'
-import { Route as ProduktyBalastyTypeWeightRouteImport } from './routes/produkty.balasty.$type.$weight'
 
 const WycenaRoute = WycenaRouteImport.update({
   id: '/wycena',
@@ -93,23 +90,6 @@ const ProduktyBalastyWeightRoute = ProduktyBalastyWeightRouteImport.update({
   path: '/$weight',
   getParentRoute: () => ProduktyBalastyRoute,
 } as any)
-const ProduktyBalastyTypeRoute = ProduktyBalastyTypeRouteImport.update({
-  id: '/$type',
-  path: '/$type',
-  getParentRoute: () => ProduktyBalastyRoute,
-} as any)
-const ProduktyBalastyTypeIndexRoute =
-  ProduktyBalastyTypeIndexRouteImport.update({
-    id: '/',
-    path: '/',
-    getParentRoute: () => ProduktyBalastyTypeRoute,
-  } as any)
-const ProduktyBalastyTypeWeightRoute =
-  ProduktyBalastyTypeWeightRouteImport.update({
-    id: '/$weight',
-    path: '/$weight',
-    getParentRoute: () => ProduktyBalastyTypeRoute,
-  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -123,11 +103,8 @@ export interface FileRoutesByFullPath {
   '/produkty/osprzet': typeof ProduktyOsprzetRoute
   '/produkty/produkcja-na-zamowienie': typeof ProduktyProdukcjaNaZamowienieRoute
   '/produkty/': typeof ProduktyIndexRoute
-  '/produkty/balasty/$type': typeof ProduktyBalastyTypeRouteWithChildren
   '/produkty/balasty/$weight': typeof ProduktyBalastyWeightRoute
   '/produkty/balasty/': typeof ProduktyBalastyIndexRoute
-  '/produkty/balasty/$type/$weight': typeof ProduktyBalastyTypeWeightRoute
-  '/produkty/balasty/$type/': typeof ProduktyBalastyTypeIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -141,8 +118,6 @@ export interface FileRoutesByTo {
   '/produkty': typeof ProduktyIndexRoute
   '/produkty/balasty/$weight': typeof ProduktyBalastyWeightRoute
   '/produkty/balasty': typeof ProduktyBalastyIndexRoute
-  '/produkty/balasty/$type/$weight': typeof ProduktyBalastyTypeWeightRoute
-  '/produkty/balasty/$type': typeof ProduktyBalastyTypeIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -157,11 +132,8 @@ export interface FileRoutesById {
   '/produkty/osprzet': typeof ProduktyOsprzetRoute
   '/produkty/produkcja-na-zamowienie': typeof ProduktyProdukcjaNaZamowienieRoute
   '/produkty/': typeof ProduktyIndexRoute
-  '/produkty/balasty/$type': typeof ProduktyBalastyTypeRouteWithChildren
   '/produkty/balasty/$weight': typeof ProduktyBalastyWeightRoute
   '/produkty/balasty/': typeof ProduktyBalastyIndexRoute
-  '/produkty/balasty/$type/$weight': typeof ProduktyBalastyTypeWeightRoute
-  '/produkty/balasty/$type/': typeof ProduktyBalastyTypeIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -177,11 +149,8 @@ export interface FileRouteTypes {
     | '/produkty/osprzet'
     | '/produkty/produkcja-na-zamowienie'
     | '/produkty/'
-    | '/produkty/balasty/$type'
     | '/produkty/balasty/$weight'
     | '/produkty/balasty/'
-    | '/produkty/balasty/$type/$weight'
-    | '/produkty/balasty/$type/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -195,8 +164,6 @@ export interface FileRouteTypes {
     | '/produkty'
     | '/produkty/balasty/$weight'
     | '/produkty/balasty'
-    | '/produkty/balasty/$type/$weight'
-    | '/produkty/balasty/$type'
   id:
     | '__root__'
     | '/'
@@ -210,11 +177,8 @@ export interface FileRouteTypes {
     | '/produkty/osprzet'
     | '/produkty/produkcja-na-zamowienie'
     | '/produkty/'
-    | '/produkty/balasty/$type'
     | '/produkty/balasty/$weight'
     | '/produkty/balasty/'
-    | '/produkty/balasty/$type/$weight'
-    | '/produkty/balasty/$type/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -319,51 +283,15 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProduktyBalastyWeightRouteImport
       parentRoute: typeof ProduktyBalastyRoute
     }
-    '/produkty/balasty/$type': {
-      id: '/produkty/balasty/$type'
-      path: '/$type'
-      fullPath: '/produkty/balasty/$type'
-      preLoaderRoute: typeof ProduktyBalastyTypeRouteImport
-      parentRoute: typeof ProduktyBalastyRoute
-    }
-    '/produkty/balasty/$type/': {
-      id: '/produkty/balasty/$type/'
-      path: '/'
-      fullPath: '/produkty/balasty/$type/'
-      preLoaderRoute: typeof ProduktyBalastyTypeIndexRouteImport
-      parentRoute: typeof ProduktyBalastyTypeRoute
-    }
-    '/produkty/balasty/$type/$weight': {
-      id: '/produkty/balasty/$type/$weight'
-      path: '/$weight'
-      fullPath: '/produkty/balasty/$type/$weight'
-      preLoaderRoute: typeof ProduktyBalastyTypeWeightRouteImport
-      parentRoute: typeof ProduktyBalastyTypeRoute
-    }
   }
 }
 
-interface ProduktyBalastyTypeRouteChildren {
-  ProduktyBalastyTypeWeightRoute: typeof ProduktyBalastyTypeWeightRoute
-  ProduktyBalastyTypeIndexRoute: typeof ProduktyBalastyTypeIndexRoute
-}
-
-const ProduktyBalastyTypeRouteChildren: ProduktyBalastyTypeRouteChildren = {
-  ProduktyBalastyTypeWeightRoute: ProduktyBalastyTypeWeightRoute,
-  ProduktyBalastyTypeIndexRoute: ProduktyBalastyTypeIndexRoute,
-}
-
-const ProduktyBalastyTypeRouteWithChildren =
-  ProduktyBalastyTypeRoute._addFileChildren(ProduktyBalastyTypeRouteChildren)
-
 interface ProduktyBalastyRouteChildren {
-  ProduktyBalastyTypeRoute: typeof ProduktyBalastyTypeRouteWithChildren
   ProduktyBalastyWeightRoute: typeof ProduktyBalastyWeightRoute
   ProduktyBalastyIndexRoute: typeof ProduktyBalastyIndexRoute
 }
 
 const ProduktyBalastyRouteChildren: ProduktyBalastyRouteChildren = {
-  ProduktyBalastyTypeRoute: ProduktyBalastyTypeRouteWithChildren,
   ProduktyBalastyWeightRoute: ProduktyBalastyWeightRoute,
   ProduktyBalastyIndexRoute: ProduktyBalastyIndexRoute,
 }
