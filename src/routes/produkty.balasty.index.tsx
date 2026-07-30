@@ -1,42 +1,28 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
-import { ArrowRight, ChevronRight, Weight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import ballastImg from "@/assets/product-ballast.jpg";
+
+const WEIGHTS = [300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400, 1600, 1800] as const;
 
 export const Route = createFileRoute("/produkty/balasty/")({
   head: () => ({
     meta: [
-      { title: "Balasty do ciągników — przednie i tylne | DMBK" },
+      { title: "Balasty do ciągników — modele 300–1800 kg | DMBK" },
       {
         name: "description",
         content:
-          "Balasty do ciągników DMBK — wersje przednie i tylne, wagi 300–1800 kg, wersje proste i przeginane, opcja ze skrzynką.",
+          "Balasty do ciągników DMBK — modele od 300 do 1800 kg, wersje proste i przeginane, opcja ze skrzynką narzędziową.",
       },
-      { property: "og:title", content: "Balasty DMBK — przednie i tylne, 300–1800 kg" },
-      { property: "og:description", content: "Wybierz balasty przednie lub tylne. Wagi 300–1800 kg." },
+      { property: "og:title", content: "Balasty DMBK — modele 300–1800 kg" },
+      {
+        property: "og:description",
+        content: "Wybierz model balastu i skonfiguruj wersję prostą lub przeginaną oraz opcję skrzynki.",
+      },
     ],
   }),
   component: BalastyIndexPage,
 });
-
-const subcategories = [
-  {
-    to: "/produkty/balasty/$type" as const,
-    params: { type: "przednie" },
-    title: "Balasty przednie",
-    desc: "Obciążniki montowane na przednim TUZ. Poprawiają przyczepność i stabilność ciągnika.",
-    img: ballastImg,
-    index: "A",
-  },
-  {
-    to: "/produkty/balasty/$type" as const,
-    params: { type: "tylne" },
-    title: "Balasty tylne",
-    desc: "Obciążniki tylne — balansują masę maszyny przy pracy z ciężkim osprzętem przednim.",
-    img: ballastImg,
-    index: "B",
-  },
-];
 
 function BalastyIndexPage() {
   return (
@@ -59,11 +45,12 @@ function BalastyIndexPage() {
               Balasty do ciągników
             </h1>
             <p className="mt-6 text-muted-foreground leading-relaxed">
-              Obciążniki poprawiające stabilność i przyczepność ciągnika. Dostępne w wersjach przednich i tylnych, w zakresie wag od 300 do 1800 kg. Warianty proste i przeginane, opcjonalnie ze skrzynką narzędziową.
+              Obciążniki poprawiające stabilność i przyczepność ciągnika. Dostępne w zakresie wag od 300 do 1800 kg.
+              Warianty proste i przeginane, opcjonalnie ze skrzynką narzędziową.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#warianty" className="inline-flex items-center gap-2 bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-wider text-primary-foreground hover:-translate-y-0.5 transition-transform">
-                Wybierz montaż <ArrowRight size={16} />
+              <a href="#modele" className="inline-flex items-center gap-2 bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-wider text-primary-foreground hover:-translate-y-0.5 transition-transform">
+                Zobacz modele <ArrowRight size={16} />
               </a>
               <Link to="/wycena" className="inline-flex items-center gap-2 border border-border px-6 py-3 text-sm font-semibold uppercase tracking-wider hover:border-primary hover:text-primary transition-colors">
                 Zapytaj o wycenę
@@ -77,34 +64,28 @@ function BalastyIndexPage() {
         </div>
       </section>
 
-      <section id="warianty" className="container-x py-16 lg:py-24">
-        <span className="text-xs uppercase tracking-[0.25em] text-primary">/ Podkategorie</span>
-        <h2 className="mt-3 font-display text-3xl lg:text-4xl uppercase">Wybierz miejsce montażu</h2>
+      <section id="modele" className="container-x py-16 lg:py-24">
+        <span className="text-xs uppercase tracking-[0.25em] text-primary">/ Modele</span>
+        <h2 className="mt-3 font-display text-3xl lg:text-4xl uppercase">Wybierz wagę balastu</h2>
+        <p className="mt-4 max-w-2xl text-muted-foreground leading-relaxed">
+          Na stronie produktu skonfigurujesz wersję (prosty / przeginany) oraz opcję skrzynki narzędziowej.
+        </p>
 
-        <div className="mt-10 grid md:grid-cols-2 gap-5">
-          {subcategories.map((s) => (
+        <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {WEIGHTS.map((w) => (
             <Link
-              key={s.params.type}
-              to={s.to}
-              params={s.params}
-              className="group relative overflow-hidden border border-border bg-card hover:border-primary/60 transition-colors"
+              key={w}
+              to="/produkty/balasty/$weight"
+              params={{ weight: String(w) }}
+              className="group relative border border-border bg-card p-6 hover:border-primary/60 transition-colors"
             >
-              <div className="relative aspect-[16/10] overflow-hidden">
-                <img src={s.img} alt={s.title} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-70 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100" />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-                <div className="absolute top-4 left-4 font-display text-xs tracking-[0.3em] text-primary">
-                  WARIANT {s.index}
-                </div>
-                <div className="absolute top-4 right-4 size-12 grid place-items-center border border-border bg-background/70 backdrop-blur-sm group-hover:border-primary group-hover:text-primary transition-colors">
-                  <Weight size={20} strokeWidth={1.5} />
-                </div>
+              <div className="text-[11px] uppercase tracking-[0.25em] text-muted-foreground">Balast</div>
+              <div className="mt-2 font-display text-3xl lg:text-4xl uppercase tracking-wider group-hover:text-primary transition-colors">
+                {w} <span className="text-lg text-muted-foreground">kg</span>
               </div>
-              <div className="p-6">
-                <h3 className="font-display text-2xl uppercase tracking-wider">{s.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
-                <span className="mt-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-primary">
-                  Zobacz modele <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-                </span>
+              <div className="mt-6 pt-4 border-t border-border flex items-center justify-between text-xs uppercase tracking-widest text-muted-foreground">
+                <span>Konfigurator</span>
+                <ArrowRight size={14} className="text-primary transition-transform group-hover:translate-x-1" />
               </div>
             </Link>
           ))}
