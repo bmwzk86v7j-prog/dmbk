@@ -4,7 +4,7 @@ import { ArrowRight, Weight, Tractor, Factory, Wrench } from "lucide-react";
 import ballastImg from "@/assets/product-ballast.jpg";
 import bucketImg from "@/assets/product-bucket.jpg";
 import constructionImg from "@/assets/product-construction.jpg";
-import specialImg from "@/assets/product-special.jpg";
+import specialImgAsset from "@/assets/produkcja-na-zamowienie-02.jpg.asset.json";
 import { useI18n } from "@/i18n/I18nProvider";
 
 export const Route = createFileRoute("/produkty/")({
@@ -62,7 +62,7 @@ function ProductsIndex() {
       title: t("cat_special"),
       subtitle: t("cat_special_subtitle"),
       desc: t("cat_special_desc"),
-      img: specialImg,
+      img: specialImgAsset.url,
       icon: Wrench,
       tags: [t("cust_f1"), t("cust_f2"), t("cust_f3"), t("cust_f4")],
       index: "04",

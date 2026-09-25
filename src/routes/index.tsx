@@ -5,7 +5,7 @@ import heroImg from "@/assets/hero-ballast.png";
 import ballastImg from "@/assets/product-ballast.jpg";
 import bucketImg from "@/assets/product-bucket.jpg";
 import constructionImg from "@/assets/product-construction.jpg";
-import specialImg from "@/assets/product-special.jpg";
+import specialImgAsset from "@/assets/produkcja-na-zamowienie-02.jpg.asset.json";
 import { useI18n } from "@/i18n/I18nProvider";
 
 export const Route = createFileRoute("/")({
@@ -26,7 +26,7 @@ function Index() {
     { title: t("cat_ballast"), img: ballastImg, to: "/produkty/balasty" as const },
     { title: t("cat_bucket"), img: bucketImg, to: "/produkty/osprzet" as const },
     { title: t("cat_construction"), img: constructionImg, to: "/produkty/konstrukcje-stalowe" as const },
-    { title: t("cat_special"), img: specialImg, to: "/produkty/produkcja-na-zamowienie" as const },
+    { title: t("cat_special"), img: specialImgAsset.url, to: "/produkty/produkcja-na-zamowienie" as const },
   ];
 
   const features = [

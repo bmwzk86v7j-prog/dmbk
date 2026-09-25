@@ -2,14 +2,19 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { ArrowRight, ChevronRight, FileUp, Lightbulb, Layers, Cog, Check } from "lucide-react";
 import { useState } from "react";
-import specialImg from "@/assets/product-special.jpg";
+import customImgOne from "@/assets/produkcja-na-zamowienie-01.jpg.asset.json";
+import customImgTwo from "@/assets/produkcja-na-zamowienie-02.jpg.asset.json";
+import customImgThree from "@/assets/produkcja-na-zamowienie-03.jpg.asset.json";
 
 export const Route = createFileRoute("/produkty/produkcja-na-zamowienie")({
   head: () => ({
     meta: [
       { title: "Produkcja na zamówienie — DMBK" },
       { name: "description", content: "Indywidualne projekty, prototypy i krótkie serie. Produkcja według rysunku technicznego klienta. Prześlij projekt — wycenimy szybko." },
-      { property: "og:image", content: specialImg },
+      { property: "og:title", content: "Produkcja na zamówienie — DMBK" },
+      { property: "og:description", content: "Indywidualne konstrukcje stalowe, prototypy i krótkie serie wykonywane przez DMBK." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: ProdukcjaNaZamowienie,
@@ -20,6 +25,12 @@ const features = [
   { icon: Layers, title: "Prototypy", desc: "Realizujemy pojedyncze egzemplarze do testów." },
   { icon: Cog, title: "Krótkie serie", desc: "Małe partie produkcyjne pod konkretne zlecenie." },
   { icon: Check, title: "Elastyczność", desc: "Indywidualne podejście do każdego projektu." },
+];
+
+const realizations = [
+  { src: customImgOne.url, alt: "Stalowy pojemnik transportowy wykonany na zamówienie" },
+  { src: customImgTwo.url, alt: "Seria stalowych pojemników przemysłowych" },
+  { src: customImgThree.url, alt: "Stalowe stojaki transportowe wykonane dla przemysłu" },
 ];
 
 function ProdukcjaNaZamowienie() {
@@ -56,7 +67,7 @@ function ProdukcjaNaZamowienie() {
           </div>
           <div className="relative">
             <div className="absolute -inset-6 bg-primary/10 blur-3xl" aria-hidden />
-            <img src={specialImg} alt="Produkcja na zamówienie DMBK" className="relative w-full object-cover border border-border" />
+            <img src={customImgTwo.url} alt="Produkcja na zamówienie DMBK" className="relative aspect-[4/3] w-full object-cover border border-border" />
           </div>
         </div>
       </section>
@@ -72,6 +83,28 @@ function ProdukcjaNaZamowienie() {
                 <div className="mt-4 font-display text-lg uppercase tracking-wider">{f.title}</div>
                 <p className="mt-2 text-sm text-muted-foreground">{f.desc}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-border">
+        <div className="container-x py-16 lg:py-24">
+          <span className="text-xs uppercase tracking-[0.25em] text-primary">/ Realizacje</span>
+          <h2 className="mt-3 font-display text-3xl lg:text-4xl uppercase">Produkcja według projektu klienta</h2>
+          <div className="mt-10 grid gap-4 md:grid-cols-2">
+            {realizations.map((image, index) => (
+              <figure
+                key={image.src}
+                className={`overflow-hidden border border-border bg-card ${index === 0 ? "md:row-span-2" : ""}`}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  loading="lazy"
+                  className={`w-full object-cover transition-transform duration-700 hover:scale-[1.02] ${index === 0 ? "h-full min-h-96" : "aspect-[16/9]"}`}
+                />
+              </figure>
             ))}
           </div>
         </div>
