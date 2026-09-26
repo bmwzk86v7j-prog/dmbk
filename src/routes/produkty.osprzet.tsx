@@ -105,8 +105,8 @@ function Osprzet() {
 
         <div className="mt-10 grid md:grid-cols-2 gap-5">
           {products.map((p) => {
-            const card = (
-              <article className="group h-full border border-border bg-card overflow-hidden hover:border-primary/60 transition-colors">
+            const body = (
+              <>
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <img
                     src={p.img}
@@ -128,20 +128,22 @@ function Osprzet() {
                     ))}
                   </ul>
                   <span
-                    className={`mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-primary transition-all ${p.to ? "group-hover:gap-3" : "group-hover:gap-3"}`}
+                    className={`mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-primary group-hover:gap-3 transition-all`}
                   >
                     {p.to ? "Zobacz produkt" : "Zapytaj o ten produkt"} <ArrowRight size={14} />
                   </span>
                 </div>
-              </article>
+              </>
             );
+            const articleClass =
+              "group h-full border border-border bg-card overflow-hidden hover:border-primary/60 transition-colors";
             return p.to ? (
-              <Link key={p.title} to={p.to} className="block h-full">
-                {card}
+              <Link key={p.title} to={p.to} className={`block ${articleClass}`}>
+                {body}
               </Link>
             ) : (
-              <article key={p.title} className="group h-full border border-border bg-card overflow-hidden hover:border-primary/60 transition-colors">
-                {/* fallback wrapper for non-linked cards is unused; cards render via `card` */}
+              <article key={p.title} className={articleClass}>
+                {body}
               </article>
             );
           })}
