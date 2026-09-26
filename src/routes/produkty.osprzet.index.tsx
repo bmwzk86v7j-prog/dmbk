@@ -4,7 +4,7 @@ import { ArrowRight, ChevronRight, Wheat, Mountain, TreePine, Container, Waves }
 import bucketImg from "@/assets/product-bucket.jpg";
 import walImg from "@/assets/wal-pryzmowy-01.png.asset.json";
 
-export const Route = createFileRoute("/produkty/osprzet")({
+export const Route = createFileRoute("/produkty/osprzet/")({
   head: () => ({
     meta: [
       { title: "Osprzęt rolniczy i przemysłowy — DMBK" },
