@@ -1,13 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
-import { ArrowRight, ChevronRight, Wheat, Mountain, TreePine, Container } from "lucide-react";
+import { ArrowRight, ChevronRight, Wheat, Mountain, TreePine, Container, Waves } from "lucide-react";
 import bucketImg from "@/assets/product-bucket.jpg";
+import walImg from "@/assets/wal-pryzmowy-01.png.asset.json";
 
 export const Route = createFileRoute("/produkty/osprzet")({
   head: () => ({
     meta: [
       { title: "Osprzęt rolniczy i przemysłowy — DMBK" },
-      { name: "description", content: "Spychy do kiszonki i kamieni, osprzęt do drewna, duże łyżki przemysłowe i rolnicze. Produkcja DMBK pod konkretną maszynę." },
+      { name: "description", content: "Spychy do kiszonki i kamieni, osprzęt do drewna, duże łyżki przemysłowe i rolnicze, wał pryzmowy. Produkcja DMBK pod konkretną maszynę." },
       { property: "og:image", content: bucketImg },
     ],
   }),
@@ -20,24 +21,36 @@ const products = [
     title: "Spychy do kiszonki",
     desc: "Wytrzymałe spychy do silosów i pryzm. Wzmocnione krawędzie, odporność na intensywną pracę.",
     specs: ["Szerokości robocze pod zamówienie", "Wzmocnione lemiesze", "Mocowania pod ładowacz"],
+    img: bucketImg,
   },
   {
     icon: Mountain,
     title: "Spychy do kamieni",
     desc: "Konstrukcje do pracy w trudnym terenie. Geometria zoptymalizowana pod kruszywo i kamień.",
     specs: ["Stal o podwyższonej twardości", "Wzmocnione spawy", "Indywidualne wymiary"],
+    img: bucketImg,
   },
   {
     icon: TreePine,
     title: "Osprzęt do drewna",
     desc: "Chwytaki, widły i osprzęt leśny — produkcja pod konkretną maszynę i specyfikę pracy.",
     specs: ["Pod ładowacze czołowe", "Wzmocniona rama", "Odporność na uderzenia"],
+    img: bucketImg,
   },
   {
     icon: Container,
     title: "Łyżki przemysłowe i rolnicze",
     desc: "Duże łyżki do maszyn rolniczych i przemysłowych — pełna produkcja własna pod wymiar.",
     specs: ["Pojemności pod projekt", "Zęby wymienne", "Lakierowanie ochronne"],
+    img: bucketImg,
+  },
+  {
+    icon: Waves,
+    title: "Wał pryzmowy do ugniatania kiszonki",
+    desc: "Wał pryzmowy DMBK do dogniatania kiszonki w pryzmach i silosach. Profilowane pierścienie robocze zagęszczają materiał podczas przejazdu ciągnikiem.",
+    specs: ["Profilowane pierścienie dogniatające", "Spawana konstrukcja stalowa", "Mocowanie do ciągnika"],
+    img: walImg.url,
+    to: "/produkty/osprzet/wal-pryzmowy" as const,
   },
 ];
 
