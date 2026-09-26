@@ -104,37 +104,47 @@ function Osprzet() {
         <h2 className="mt-3 font-display text-3xl lg:text-4xl uppercase">Co produkujemy</h2>
 
         <div className="mt-10 grid md:grid-cols-2 gap-5">
-          {products.map((p) => (
-            <article key={p.title} className="group border border-border bg-card overflow-hidden hover:border-primary/60 transition-colors">
-              <div className="relative aspect-[16/10] overflow-hidden">
-                <img
-                  src={bucketImg}
-                  alt={p.title}
-                  loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover opacity-70 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-                <div className="absolute top-4 right-4 size-11 grid place-items-center border border-border bg-background/70 backdrop-blur-sm text-primary">
-                  <p.icon size={18} strokeWidth={1.5} />
+          {products.map((p) => {
+            const card = (
+              <article className="group h-full border border-border bg-card overflow-hidden hover:border-primary/60 transition-colors">
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <img
+                    src={p.img}
+                    alt={p.title}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover opacity-70 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                  <div className="absolute top-4 right-4 size-11 grid place-items-center border border-border bg-background/70 backdrop-blur-sm text-primary">
+                    <p.icon size={18} strokeWidth={1.5} />
+                  </div>
                 </div>
-              </div>
-              <div className="p-6">
-                <h3 className="font-display text-xl uppercase tracking-wider">{p.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
-                <ul className="mt-4 space-y-1 text-xs uppercase tracking-widest text-muted-foreground">
-                  {p.specs.map((s) => (
-                    <li key={s} className="flex gap-2"><span className="text-primary">—</span>{s}</li>
-                  ))}
-                </ul>
-                <Link
-                  to="/wycena"
-                  className="mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-primary group-hover:gap-3 transition-all"
-                >
-                  Zapytaj o ten produkt <ArrowRight size={14} />
-                </Link>
-              </div>
-            </article>
-          ))}
+                <div className="p-6">
+                  <h3 className="font-display text-xl uppercase tracking-wider">{p.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
+                  <ul className="mt-4 space-y-1 text-xs uppercase tracking-widest text-muted-foreground">
+                    {p.specs.map((s) => (
+                      <li key={s} className="flex gap-2"><span className="text-primary">—</span>{s}</li>
+                    ))}
+                  </ul>
+                  <span
+                    className={`mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-primary transition-all ${p.to ? "group-hover:gap-3" : "group-hover:gap-3"}`}
+                  >
+                    {p.to ? "Zobacz produkt" : "Zapytaj o ten produkt"} <ArrowRight size={14} />
+                  </span>
+                </div>
+              </article>
+            );
+            return p.to ? (
+              <Link key={p.title} to={p.to} className="block h-full">
+                {card}
+              </Link>
+            ) : (
+              <article key={p.title} className="group h-full border border-border bg-card overflow-hidden hover:border-primary/60 transition-colors">
+                {/* fallback wrapper for non-linked cards is unused; cards render via `card` */}
+              </article>
+            );
+          })}
         </div>
       </section>
     </SiteLayout>
