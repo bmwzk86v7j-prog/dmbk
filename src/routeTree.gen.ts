@@ -17,9 +17,9 @@ import { Route as GaleriaRouteImport } from './routes/galeria'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProduktyIndexRouteImport } from './routes/produkty.index'
 import { Route as ProduktyProdukcjaNaZamowienieRouteImport } from './routes/produkty.produkcja-na-zamowienie'
-import { Route as ProduktyOsprzetRouteImport } from './routes/produkty.osprzet'
 import { Route as ProduktyKonstrukcjeStaloweRouteImport } from './routes/produkty.konstrukcje-stalowe'
 import { Route as ProduktyBalastyRouteImport } from './routes/produkty.balasty'
+import { Route as ProduktyOsprzetIndexRouteImport } from './routes/produkty.osprzet.index'
 import { Route as ProduktyBalastyIndexRouteImport } from './routes/produkty.balasty.index'
 import { Route as ProduktyOsprzetWalPryzmowyRouteImport } from './routes/produkty.osprzet.wal-pryzmowy'
 import { Route as ProduktyBalastyWeightRouteImport } from './routes/produkty.balasty.$weight'
@@ -65,11 +65,6 @@ const ProduktyProdukcjaNaZamowienieRoute =
     path: '/produkcja-na-zamowienie',
     getParentRoute: () => ProduktyRoute,
   } as any)
-const ProduktyOsprzetRoute = ProduktyOsprzetRouteImport.update({
-  id: '/osprzet',
-  path: '/osprzet',
-  getParentRoute: () => ProduktyRoute,
-} as any)
 const ProduktyKonstrukcjeStaloweRoute =
   ProduktyKonstrukcjeStaloweRouteImport.update({
     id: '/konstrukcje-stalowe',
@@ -81,6 +76,11 @@ const ProduktyBalastyRoute = ProduktyBalastyRouteImport.update({
   path: '/balasty',
   getParentRoute: () => ProduktyRoute,
 } as any)
+const ProduktyOsprzetIndexRoute = ProduktyOsprzetIndexRouteImport.update({
+  id: '/osprzet/',
+  path: '/osprzet/',
+  getParentRoute: () => ProduktyRoute,
+} as any)
 const ProduktyBalastyIndexRoute = ProduktyBalastyIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -88,9 +88,9 @@ const ProduktyBalastyIndexRoute = ProduktyBalastyIndexRouteImport.update({
 } as any)
 const ProduktyOsprzetWalPryzmowyRoute =
   ProduktyOsprzetWalPryzmowyRouteImport.update({
-    id: '/wal-pryzmowy',
-    path: '/wal-pryzmowy',
-    getParentRoute: () => ProduktyOsprzetRoute,
+    id: '/osprzet/wal-pryzmowy',
+    path: '/osprzet/wal-pryzmowy',
+    getParentRoute: () => ProduktyRoute,
   } as any)
 const ProduktyBalastyWeightRoute = ProduktyBalastyWeightRouteImport.update({
   id: '/$weight',
@@ -107,12 +107,12 @@ export interface FileRoutesByFullPath {
   '/wycena': typeof WycenaRoute
   '/produkty/balasty': typeof ProduktyBalastyRouteWithChildren
   '/produkty/konstrukcje-stalowe': typeof ProduktyKonstrukcjeStaloweRoute
-  '/produkty/osprzet': typeof ProduktyOsprzetRouteWithChildren
   '/produkty/produkcja-na-zamowienie': typeof ProduktyProdukcjaNaZamowienieRoute
   '/produkty/': typeof ProduktyIndexRoute
   '/produkty/balasty/$weight': typeof ProduktyBalastyWeightRoute
   '/produkty/osprzet/wal-pryzmowy': typeof ProduktyOsprzetWalPryzmowyRoute
   '/produkty/balasty/': typeof ProduktyBalastyIndexRoute
+  '/produkty/osprzet/': typeof ProduktyOsprzetIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -121,12 +121,12 @@ export interface FileRoutesByTo {
   '/o-firmie': typeof OFirmieRoute
   '/wycena': typeof WycenaRoute
   '/produkty/konstrukcje-stalowe': typeof ProduktyKonstrukcjeStaloweRoute
-  '/produkty/osprzet': typeof ProduktyOsprzetRouteWithChildren
   '/produkty/produkcja-na-zamowienie': typeof ProduktyProdukcjaNaZamowienieRoute
   '/produkty': typeof ProduktyIndexRoute
   '/produkty/balasty/$weight': typeof ProduktyBalastyWeightRoute
   '/produkty/osprzet/wal-pryzmowy': typeof ProduktyOsprzetWalPryzmowyRoute
   '/produkty/balasty': typeof ProduktyBalastyIndexRoute
+  '/produkty/osprzet': typeof ProduktyOsprzetIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -138,12 +138,12 @@ export interface FileRoutesById {
   '/wycena': typeof WycenaRoute
   '/produkty/balasty': typeof ProduktyBalastyRouteWithChildren
   '/produkty/konstrukcje-stalowe': typeof ProduktyKonstrukcjeStaloweRoute
-  '/produkty/osprzet': typeof ProduktyOsprzetRouteWithChildren
   '/produkty/produkcja-na-zamowienie': typeof ProduktyProdukcjaNaZamowienieRoute
   '/produkty/': typeof ProduktyIndexRoute
   '/produkty/balasty/$weight': typeof ProduktyBalastyWeightRoute
   '/produkty/osprzet/wal-pryzmowy': typeof ProduktyOsprzetWalPryzmowyRoute
   '/produkty/balasty/': typeof ProduktyBalastyIndexRoute
+  '/produkty/osprzet/': typeof ProduktyOsprzetIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -156,12 +156,12 @@ export interface FileRouteTypes {
     | '/wycena'
     | '/produkty/balasty'
     | '/produkty/konstrukcje-stalowe'
-    | '/produkty/osprzet'
     | '/produkty/produkcja-na-zamowienie'
     | '/produkty/'
     | '/produkty/balasty/$weight'
     | '/produkty/osprzet/wal-pryzmowy'
     | '/produkty/balasty/'
+    | '/produkty/osprzet/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -170,12 +170,12 @@ export interface FileRouteTypes {
     | '/o-firmie'
     | '/wycena'
     | '/produkty/konstrukcje-stalowe'
-    | '/produkty/osprzet'
     | '/produkty/produkcja-na-zamowienie'
     | '/produkty'
     | '/produkty/balasty/$weight'
     | '/produkty/osprzet/wal-pryzmowy'
     | '/produkty/balasty'
+    | '/produkty/osprzet'
   id:
     | '__root__'
     | '/'
@@ -186,12 +186,12 @@ export interface FileRouteTypes {
     | '/wycena'
     | '/produkty/balasty'
     | '/produkty/konstrukcje-stalowe'
-    | '/produkty/osprzet'
     | '/produkty/produkcja-na-zamowienie'
     | '/produkty/'
     | '/produkty/balasty/$weight'
     | '/produkty/osprzet/wal-pryzmowy'
     | '/produkty/balasty/'
+    | '/produkty/osprzet/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -261,13 +261,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProduktyProdukcjaNaZamowienieRouteImport
       parentRoute: typeof ProduktyRoute
     }
-    '/produkty/osprzet': {
-      id: '/produkty/osprzet'
-      path: '/osprzet'
-      fullPath: '/produkty/osprzet'
-      preLoaderRoute: typeof ProduktyOsprzetRouteImport
-      parentRoute: typeof ProduktyRoute
-    }
     '/produkty/konstrukcje-stalowe': {
       id: '/produkty/konstrukcje-stalowe'
       path: '/konstrukcje-stalowe'
@@ -282,6 +275,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProduktyBalastyRouteImport
       parentRoute: typeof ProduktyRoute
     }
+    '/produkty/osprzet/': {
+      id: '/produkty/osprzet/'
+      path: '/osprzet'
+      fullPath: '/produkty/osprzet/'
+      preLoaderRoute: typeof ProduktyOsprzetIndexRouteImport
+      parentRoute: typeof ProduktyRoute
+    }
     '/produkty/balasty/': {
       id: '/produkty/balasty/'
       path: '/'
@@ -291,10 +291,10 @@ declare module '@tanstack/react-router' {
     }
     '/produkty/osprzet/wal-pryzmowy': {
       id: '/produkty/osprzet/wal-pryzmowy'
-      path: '/wal-pryzmowy'
+      path: '/osprzet/wal-pryzmowy'
       fullPath: '/produkty/osprzet/wal-pryzmowy'
       preLoaderRoute: typeof ProduktyOsprzetWalPryzmowyRouteImport
-      parentRoute: typeof ProduktyOsprzetRoute
+      parentRoute: typeof ProduktyRoute
     }
     '/produkty/balasty/$weight': {
       id: '/produkty/balasty/$weight'
@@ -320,32 +320,22 @@ const ProduktyBalastyRouteWithChildren = ProduktyBalastyRoute._addFileChildren(
   ProduktyBalastyRouteChildren,
 )
 
-interface ProduktyOsprzetRouteChildren {
-  ProduktyOsprzetWalPryzmowyRoute: typeof ProduktyOsprzetWalPryzmowyRoute
-}
-
-const ProduktyOsprzetRouteChildren: ProduktyOsprzetRouteChildren = {
-  ProduktyOsprzetWalPryzmowyRoute: ProduktyOsprzetWalPryzmowyRoute,
-}
-
-const ProduktyOsprzetRouteWithChildren = ProduktyOsprzetRoute._addFileChildren(
-  ProduktyOsprzetRouteChildren,
-)
-
 interface ProduktyRouteChildren {
   ProduktyBalastyRoute: typeof ProduktyBalastyRouteWithChildren
   ProduktyKonstrukcjeStaloweRoute: typeof ProduktyKonstrukcjeStaloweRoute
-  ProduktyOsprzetRoute: typeof ProduktyOsprzetRouteWithChildren
   ProduktyProdukcjaNaZamowienieRoute: typeof ProduktyProdukcjaNaZamowienieRoute
   ProduktyIndexRoute: typeof ProduktyIndexRoute
+  ProduktyOsprzetWalPryzmowyRoute: typeof ProduktyOsprzetWalPryzmowyRoute
+  ProduktyOsprzetIndexRoute: typeof ProduktyOsprzetIndexRoute
 }
 
 const ProduktyRouteChildren: ProduktyRouteChildren = {
   ProduktyBalastyRoute: ProduktyBalastyRouteWithChildren,
   ProduktyKonstrukcjeStaloweRoute: ProduktyKonstrukcjeStaloweRoute,
-  ProduktyOsprzetRoute: ProduktyOsprzetRouteWithChildren,
   ProduktyProdukcjaNaZamowienieRoute: ProduktyProdukcjaNaZamowienieRoute,
   ProduktyIndexRoute: ProduktyIndexRoute,
+  ProduktyOsprzetWalPryzmowyRoute: ProduktyOsprzetWalPryzmowyRoute,
+  ProduktyOsprzetIndexRoute: ProduktyOsprzetIndexRoute,
 }
 
 const ProduktyRouteWithChildren = ProduktyRoute._addFileChildren(
