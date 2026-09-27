@@ -20,6 +20,47 @@ const ALLOWED_EXT = ["jpg", "jpeg", "png", "pdf", "zip"];
 const ALLOWED_MIME = ["image/jpeg", "image/png", "application/pdf", "application/zip", "application/x-zip-compressed"];
 const MAX_SIZE = 10 * 1024 * 1024; // limit pojedynczego pliku w usłudze pocztowej
 const MAX_TOTAL_SIZE = 25 * 1024 * 1024;
+const QUOTE_RECIPIENT = "DMB-k@wp.pl";
+
+async function sendViaFormSubmit(fields: { name: string; phone: string; email: string; message: string }, files: File[]) {
+  const groups: File[][] = [];
+  let group: File[] = [];
+  let groupSize = 0;
+
+  for (const file of files) {
+    if (group.length && groupSize + file.size > MAX_SIZE) {
+      groups.push(group);
+      group = [];
+      groupSize = 0;
+    }
+    group.push(file);
+    groupSize += file.size;
+  }
+  if (group.length || groups.length === 0) groups.push(group);
+
+  for (const [index, attachments] of groups.entries()) {
+    const body = new FormData();
+    body.set("name", fields.name);
+    body.set("phone", fields.phone);
+    body.set("email", fields.email);
+    body.set("message", fields.message);
+    body.set("_replyto", fields.email);
+    body.set("_subject", `Nowe zapytanie o wycenę DMBK — ${fields.name}${groups.length > 1 ? ` — część ${index + 1}/${groups.length}` : ""}`);
+    body.set("_template", "table");
+    body.set("_captcha", "false");
+    attachments.forEach((file) => body.append("attachment", file, file.name));
+
+    const response = await fetch(`https://formsubmit.co/ajax/${QUOTE_RECIPIENT}`, {
+      method: "POST",
+      headers: { Accept: "application/json" },
+      body,
+    });
+    const result = await response.json().catch(() => null) as { success?: string | boolean; message?: string } | null;
+    if (!response.ok || result?.success === false || result?.success === "false") {
+      throw new Error(result?.message || "Usługa pocztowa nie przyjęła wiadomości.");
+    }
+  }
+}
 
 function fileIcon(name: string) {
   const ext = name.split(".").pop()?.toLowerCase() ?? "";
@@ -100,14 +141,18 @@ function Quote() {
 
     setSending(true);
     try {
-      const response = await fetch("/api/wycena", {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: fd,
-      });
-      const result = await response.json() as { success?: string | boolean; message?: string };
-      if (!response.ok || result.success === false || result.success === "false") {
-        throw new Error(result.message || "mail rejected");
+      try {
+        const response = await fetch("/api/wycena", {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: fd,
+        });
+        const result = await response.json().catch(() => null) as { success?: string | boolean; message?: string } | null;
+        if (!response.ok || !result || result.success === false || result.success === "false") {
+          throw new Error(result?.message || "mail rejected");
+        }
+      } catch {
+        await sendViaFormSubmit({ name, phone, email, message: desc }, files);
       }
       setSent(true);
     } catch (cause) {
