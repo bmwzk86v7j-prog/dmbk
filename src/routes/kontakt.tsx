@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { useI18n } from "@/i18n/I18nProvider";
+import mapImage from "@/assets/mapa-dmbk-real.png";
 
 export const Route = createFileRoute("/kontakt")({
   head: () => ({
@@ -39,14 +40,22 @@ function Contact() {
             </div>
           </div>
 
-          <div className="border border-border overflow-hidden aspect-[4/3] lg:aspect-auto lg:min-h-[420px]">
-            <iframe
-              title="Mapa DMBK"
-              src="https://www.google.com/maps?q=Solarnia+Stra%C5%BCacka+10,+Polska&output=embed"
-              className="w-full h-full grayscale contrast-125"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
+          <div
+            className="relative border border-border overflow-hidden aspect-[4/3] lg:aspect-auto lg:min-h-[420px] bg-card"
+          >
+            <img
+              src={mapImage}
+              alt="Mapa dojazdu do DMBK, Strażacka 10 w Solarni"
+              className="absolute inset-0 h-full w-full object-cover"
             />
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Stra%C5%BCacka%2010%2C%2042-700%20Solarnia%2C%20Polska"
+              target="_blank"
+              rel="noreferrer"
+              className="absolute bottom-4 left-4 z-10 inline-flex items-center gap-2 bg-background/95 px-4 py-3 text-xs font-semibold uppercase tracking-wider shadow-lg hover:text-primary"
+            >
+              <MapPin size={15} className="text-primary" /> Otwórz trasę w mapach
+            </a>
           </div>
         </div>
       </section>

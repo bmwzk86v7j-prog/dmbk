@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { ArrowRight, Weight, Tractor, Factory, Wrench } from "lucide-react";
-import ballastImg from "@/assets/product-ballast.jpg";
-import bucketImg from "@/assets/product-bucket.jpg";
-import constructionImg from "@/assets/product-construction.jpg";
-import specialImgAsset from "@/assets/produkcja-na-zamowienie-02.jpg.asset.json";
+import ballastImg from "@/assets/balast-1000-1600-01.jpg";
+import silageEquipmentImg from "@/assets/spych-do-kiszonki-03.png";
+import constructionImg from "@/assets/schody-stalowe-wnetrze-clean.png";
+import specialImg from "@/assets/produkcja-na-zamowienie-02.jpg";
 import { useI18n } from "@/i18n/I18nProvider";
 
 export const Route = createFileRoute("/produkty/")({
@@ -42,9 +42,9 @@ function ProductsIndex() {
       title: t("cat_bucket"),
       subtitle: t("cat_bucket_subtitle"),
       desc: t("cat_bucket_desc"),
-      img: bucketImg,
+      img: silageEquipmentImg,
       icon: Tractor,
-      tags: [t("eq_silage"), t("eq_stone"), t("eq_wood"), t("eq_bucket")],
+      tags: ["Skrzynie transportowe", "Pługi równające", "Spychy do kiszonki", "Łyżki ażurowe"],
       index: "02",
     },
     {
@@ -62,7 +62,7 @@ function ProductsIndex() {
       title: t("cat_special"),
       subtitle: t("cat_special_subtitle"),
       desc: t("cat_special_desc"),
-      img: specialImgAsset.url,
+      img: specialImg,
       icon: Wrench,
       tags: [t("cust_f1"), t("cust_f2"), t("cust_f3"), t("cust_f4")],
       index: "04",

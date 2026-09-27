@@ -1,11 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Hammer, Cog, Factory, ShieldCheck, Truck, Ship, Clock } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
-import heroImg from "@/assets/hero-ballast.png";
-import ballastImg from "@/assets/product-ballast.jpg";
-import bucketImg from "@/assets/product-bucket.jpg";
-import constructionImg from "@/assets/product-construction.jpg";
-import specialImgAsset from "@/assets/produkcja-na-zamowienie-02.jpg.asset.json";
+import heroImg from "@/assets/hero-ballast-front.png";
+import ballastImg from "@/assets/balast-1000-1600-01.jpg";
+import equipmentImg from "@/assets/spych-do-kiszonki-03.png";
+import constructionImg from "@/assets/schody-stalowe-wnetrze-clean.png";
+import specialImg from "@/assets/produkcja-na-zamowienie-02.jpg";
 import { useI18n } from "@/i18n/I18nProvider";
 
 export const Route = createFileRoute("/")({
@@ -24,9 +24,9 @@ function Index() {
 
   const categories = [
     { title: t("cat_ballast"), img: ballastImg, to: "/produkty/balasty" as const },
-    { title: t("cat_bucket"), img: bucketImg, to: "/produkty/osprzet" as const },
+    { title: t("cat_bucket"), img: equipmentImg, to: "/produkty/osprzet" as const },
     { title: t("cat_construction"), img: constructionImg, to: "/produkty/konstrukcje-stalowe" as const },
-    { title: t("cat_special"), img: specialImgAsset.url, to: "/produkty/produkcja-na-zamowienie" as const },
+    { title: t("cat_special"), img: specialImg, to: "/produkty/produkcja-na-zamowienie" as const },
   ];
 
   const features = [

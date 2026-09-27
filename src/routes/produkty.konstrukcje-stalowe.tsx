@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { ArrowRight, ChevronRight, Frame, Anchor, LayoutGrid, Cog, Wrench, Flame } from "lucide-react";
 import constructionImg from "@/assets/product-construction.jpg";
+import roofConstructionImg from "@/assets/konstrukcja-dachowa-01.jpg";
+import steelStairsImg from "@/assets/schody-stalowe-01.jpg";
 
 export const Route = createFileRoute("/produkty/konstrukcje-stalowe")({
   head: () => ({
@@ -105,6 +107,65 @@ function KonstrukcjeStalowe() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="container-x py-16 lg:py-24">
+        <span className="text-xs uppercase tracking-[0.25em] text-primary">/ Specjalizacje</span>
+        <h2 className="mt-3 font-display text-3xl lg:text-4xl uppercase">Nasze konstrukcje</h2>
+
+        <div className="mt-10 grid gap-8">
+        <Link
+          to="/produkty/stalowe-konstrukcje-dachowe"
+          className="group grid overflow-hidden border border-border bg-card transition-colors hover:border-primary/60 lg:grid-cols-[1.2fr_1fr]"
+        >
+          <div className="relative min-h-80 overflow-hidden">
+            <img
+              src={roofConstructionImg}
+              alt="Stalowa konstrukcja dachowa w trakcie montażu"
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover opacity-80 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+          </div>
+          <div className="flex flex-col justify-center p-7 lg:p-10">
+            <span className="text-xs uppercase tracking-[0.25em] text-primary">Realizacja</span>
+            <h3 className="mt-3 font-display text-3xl uppercase">Stalowe konstrukcje dachowe</h3>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              Dźwigary, belki, rygle i stężenia wykonywane według dokumentacji technicznej, przygotowane
+              do sprawnego montażu na obiekcie.
+            </p>
+            <span className="mt-7 inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-primary transition-all group-hover:gap-3">
+              Zobacz realizację <ArrowRight size={14} />
+            </span>
+          </div>
+        </Link>
+
+        <Link
+          to="/produkty/schody-stalowe"
+          className="group grid overflow-hidden border border-border bg-card transition-colors hover:border-primary/60 lg:grid-cols-[1.2fr_1fr]"
+        >
+          <div className="relative min-h-80 overflow-hidden">
+            <img
+              src={steelStairsImg}
+              alt="Zewnętrzne schody stalowe z balustradą"
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover opacity-80 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+          </div>
+          <div className="flex flex-col justify-center p-7 lg:p-10">
+            <span className="text-xs uppercase tracking-[0.25em] text-primary">Realizacja</span>
+            <h3 className="mt-3 font-display text-3xl uppercase">Schody stalowe</h3>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              Schody zewnętrzne i techniczne wykonywane na wymiar, wraz z podestami
+              oraz zabezpieczeniem antykorozyjnym konstrukcji.
+            </p>
+            <span className="mt-7 inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-primary transition-all group-hover:gap-3">
+              Zobacz realizację <ArrowRight size={14} />
+            </span>
+          </div>
+        </Link>
         </div>
       </section>
     </SiteLayout>

@@ -2,9 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { ArrowRight, ChevronRight, FileUp, Lightbulb, Layers, Cog, Check } from "lucide-react";
 import { useState } from "react";
-import customImgOne from "@/assets/produkcja-na-zamowienie-01.jpg.asset.json";
-import customImgTwo from "@/assets/produkcja-na-zamowienie-02.jpg.asset.json";
-import customImgThree from "@/assets/produkcja-na-zamowienie-03.jpg.asset.json";
+import customImgOne from "@/assets/produkcja-na-zamowienie-01.jpg";
+import customImgTwo from "@/assets/produkcja-na-zamowienie-02.jpg";
+import customImgThree from "@/assets/produkcja-na-zamowienie-03.jpg";
 
 export const Route = createFileRoute("/produkty/produkcja-na-zamowienie")({
   head: () => ({
@@ -28,9 +28,9 @@ const features = [
 ];
 
 const realizations = [
-  { src: customImgOne.url, alt: "Stalowy pojemnik transportowy wykonany na zamówienie" },
-  { src: customImgTwo.url, alt: "Seria stalowych pojemników przemysłowych" },
-  { src: customImgThree.url, alt: "Stalowe stojaki transportowe wykonane dla przemysłu" },
+  { src: customImgOne, alt: "Stalowy pojemnik transportowy wykonany na zamówienie" },
+  { src: customImgTwo, alt: "Seria stalowych pojemników przemysłowych" },
+  { src: customImgThree, alt: "Stalowe stojaki transportowe wykonane dla przemysłu" },
 ];
 
 function ProdukcjaNaZamowienie() {
@@ -67,7 +67,7 @@ function ProdukcjaNaZamowienie() {
           </div>
           <div className="relative">
             <div className="absolute -inset-6 bg-primary/10 blur-3xl" aria-hidden />
-            <img src={customImgTwo.url} alt="Produkcja na zamówienie DMBK" className="relative aspect-[4/3] w-full object-cover border border-border" />
+            <img src={customImgTwo} alt="Produkcja na zamówienie DMBK" className="relative aspect-[4/3] w-full object-cover border border-border" />
           </div>
         </div>
       </section>

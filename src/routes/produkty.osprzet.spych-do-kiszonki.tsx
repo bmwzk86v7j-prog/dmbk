@@ -1,46 +1,49 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { ArrowRight, ChevronRight, Check } from "lucide-react";
-import walImg1 from "@/assets/wal-pryzmowy-01.png";
-import walImg2 from "@/assets/wal-pryzmowy-02.png";
-import walImg3 from "@/assets/wal-pryzmowy-03.png";
+import spychImg1 from "@/assets/spych-do-kiszonki-01.png";
+import spychImg2 from "@/assets/spych-do-kiszonki-02.png";
+import spychImg3 from "@/assets/spych-do-kiszonki-03.png";
 
-export const Route = createFileRoute("/produkty/osprzet/wal-pryzmowy")({
+export const Route = createFileRoute("/produkty/osprzet/spych-do-kiszonki")({
   head: () => ({
     meta: [
-      { title: "Wał pryzmowy do ugniatania kiszonki — DMBK" },
+      { title: "Spych do kiszonki — DMBK" },
       {
         name: "description",
         content:
-          "Wał pryzmowy DMBK do dogniatania kiszonki w pryzmach i silosach. Profilowane pierścienie robocze, solidna konstrukcja stalowa, mocowanie do ciągnika.",
+          "Spych DMBK do sprawnego rozprowadzania i równomiernego układania zielonki na pryzmach oraz w silosach. Solidna konstrukcja stalowa i wzmocniona krawędź robocza.",
       },
-      { property: "og:title", content: "Wał pryzmowy do ugniatania kiszonki — DMBK" },
+      { property: "og:title", content: "Spych do kiszonki — DMBK" },
       {
         property: "og:description",
-        content: "Profilowane pierścienie dogniatające, spawana konstrukcja stalowa, produkcja DMBK.",
+        content: "Szeroka powierzchnia robocza, wzmocniona krawędź i solidna konstrukcja stalowa DMBK.",
       },
+      { property: "og:image", content: spychImg3 },
       { property: "og:type", content: "product" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: WalPryzmowy,
+  component: SpychDoKiszonki,
 });
 
 const gallery = [
-  { src: walImg1, alt: "Wał pryzmowy DMBK — widok z przodu" },
-  { src: walImg2, alt: "Wał pryzmowy DMBK — widok całego urządzenia" },
-  { src: walImg3, alt: "Wał pryzmowy DMBK — widok z boku" },
+  { src: spychImg1, alt: "Spych do kiszonki DMBK — widok konstrukcji i mocowania" },
+  { src: spychImg2, alt: "Spychy do kiszonki DMBK — widok od strony roboczej" },
+  { src: spychImg3, alt: "Spych DMBK podczas rozprowadzania zielonki na pryzmie" },
 ];
 
 const features = [
-  "Do ugniatania pryzm z kukurydzy, traw i innych zielonek.",
-  "Profilowane pierścienie dogniatające.",
+  "Do rozprowadzania i wyrównywania kukurydzy, traw oraz innych zielonek.",
+  "Szeroka powierzchnia robocza usprawniająca pracę na pryzmie.",
   "Solidna, spawana konstrukcja stalowa.",
-  "Mocowanie do ciągnika.",
-  "Dodatkowe koło widoczne na zdjęciach.",
+  "Wzmocniona dolna krawędź robocza.",
+  "Wysokie boki ograniczające przesypywanie się materiału.",
+  "Osłona górna poprawiająca bezpieczeństwo i widoczność podczas pracy.",
+  "Możliwość dopasowania mocowania do maszyny klienta.",
 ];
 
-function WalPryzmowy() {
+function SpychDoKiszonki() {
   return (
     <SiteLayout>
       <section className="border-b border-border">
@@ -49,7 +52,7 @@ function WalPryzmowy() {
           <ChevronRight size={12} className="inline mx-2" />
           <Link to="/produkty/osprzet" className="hover:text-primary">Osprzęt rolniczy i przemysłowy</Link>
           <ChevronRight size={12} className="inline mx-2" />
-          <span className="text-foreground">Wał pryzmowy</span>
+          <span className="text-foreground">Spych do kiszonki</span>
         </div>
       </section>
 
@@ -57,29 +60,32 @@ function WalPryzmowy() {
         <div className="container-x py-16 lg:py-20 grid lg:grid-cols-2 gap-12 items-start">
           <div className="relative">
             <div className="absolute -inset-6 bg-primary/10 blur-3xl" aria-hidden />
-            <img
-              src={gallery[0].src}
-              alt={gallery[0].alt}
-              className="relative w-full object-cover border border-border"
-            />
+            <div className="relative aspect-[4/5] overflow-hidden border border-border">
+              <img
+                src={spychImg3}
+                alt="Spych DMBK podczas rozprowadzania zielonki na pryzmie"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
           </div>
           <div>
             <span className="text-xs uppercase tracking-[0.25em] text-primary">/ 02 — Osprzęt</span>
             <h1 className="mt-3 font-display text-4xl lg:text-5xl uppercase leading-[0.95]">
-              Wał pryzmowy do ugniatania kiszonki
+              Spych do kiszonki
             </h1>
             <p className="mt-6 text-muted-foreground leading-relaxed">
-              Wał pryzmowy DMBK przeznaczony do dogniatania kiszonki w pryzmach i silosach. Profilowane
-              pierścienie robocze pomagają zagęścić materiał podczas przejazdu ciągnikiem.
+              Spych DMBK przeznaczony do sprawnego rozprowadzania i równomiernego układania zielonki
+              na pryzmach oraz w silosach. Szeroka, solidna konstrukcja ułatwia pracę z dużą ilością
+              materiału, a wzmocniona dolna krawędź zapewnia trwałość podczas intensywnego użytkowania.
             </p>
 
             <ul className="mt-8 space-y-3 text-sm">
-              {features.map((f) => (
-                <li key={f} className="flex items-start gap-3">
+              {features.map((feature) => (
+                <li key={feature} className="flex items-start gap-3">
                   <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center border border-primary/40 text-primary">
                     <Check size={12} strokeWidth={2} />
                   </span>
-                  <span className="text-foreground/90">{f}</span>
+                  <span className="text-foreground/90">{feature}</span>
                 </li>
               ))}
             </ul>
@@ -101,18 +107,18 @@ function WalPryzmowy() {
         <h2 className="mt-3 font-display text-3xl lg:text-4xl uppercase">Zdjęcia produktu</h2>
 
         <div className="mt-10 grid gap-5 lg:gap-6">
-          {gallery.map((g, i) => (
-            <figure key={g.src} className="border border-border bg-card overflow-hidden">
+          {gallery.map((image, index) => (
+            <figure key={image.src} className="border border-border bg-card overflow-hidden">
               <div className="relative aspect-[16/10] overflow-hidden">
                 <img
-                  src={g.src}
-                  alt={g.alt}
-                  loading={i === 0 ? "eager" : "lazy"}
+                  src={image.src}
+                  alt={image.alt}
+                  loading={index === 0 ? "eager" : "lazy"}
                   className="absolute inset-0 h-full w-full object-cover"
                 />
               </div>
               <figcaption className="px-5 py-3 text-[11px] uppercase tracking-widest text-muted-foreground border-t border-border">
-                {g.alt}
+                {image.alt}
               </figcaption>
             </figure>
           ))}

@@ -18,8 +18,8 @@ export const Route = createFileRoute("/wycena")({
 
 const ALLOWED_EXT = ["jpg", "jpeg", "png", "pdf", "zip"];
 const ALLOWED_MIME = ["image/jpeg", "image/png", "application/pdf", "application/zip", "application/x-zip-compressed"];
-const MAX_SIZE = 10 * 1024 * 1024; // 10 MB
-const RECIPIENT = "DMB-k@wp.pl";
+const MAX_SIZE = 10 * 1024 * 1024; // limit pojedynczego pliku w usłudze pocztowej
+const MAX_TOTAL_SIZE = 25 * 1024 * 1024;
 
 function fileIcon(name: string) {
   const ext = name.split(".").pop()?.toLowerCase() ?? "";
@@ -53,6 +53,11 @@ function Quote() {
         setError(`${t("quote_err_file_size")} ${f.name}`);
         return;
       }
+    }
+    const totalSize = [...files, ...list].reduce((sum, file) => sum + file.size, 0);
+    if (totalSize > MAX_TOTAL_SIZE) {
+      setError("Łączny rozmiar załączników nie może przekroczyć 25 MB.");
+      return;
     }
     setError(null);
     setFiles((prev) => [...prev, ...list]);
@@ -90,12 +95,28 @@ function Quote() {
       return;
     }
 
+    fd.set("message", desc);
+    files.forEach((file) => fd.append("attachment", file, file.name));
+
     setSending(true);
-    // Frontend-only: backend wysyłki maila z załącznikami wymaga włączenia
-    // Lovable Cloud + Resend (instrukcja u góry po pytaniu).
-    await new Promise((r) => setTimeout(r, 600));
-    setSending(false);
-    setSent(true);
+    try {
+      const response = await fetch("/api/wycena", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: fd,
+      });
+      const result = await response.json() as { success?: string | boolean; message?: string };
+      if (!response.ok || result.success === false || result.success === "false") {
+        throw new Error(result.message || "mail rejected");
+      }
+      setSent(true);
+    } catch (cause) {
+      setError(cause instanceof Error && cause.message !== "mail rejected"
+        ? cause.message
+        : "Nie udało się wysłać zapytania. Spróbuj ponownie albo napisz bezpośrednio na DMB-k@wp.pl.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (

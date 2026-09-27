@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useI18n } from "@/i18n/I18nProvider";
+import dmbkLogo from "@/assets/dmbk-logo-header-gray.png";
 
 const langs = ["PL", "EN", "DE"] as const;
 
@@ -21,9 +22,13 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container-x flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 font-display text-xl font-bold tracking-widest">
-          <span className="inline-block h-3 w-3 bg-primary" aria-hidden />
-          DMBK
+        <Link to="/" className="flex items-center gap-2.5" aria-label="DMBK — strona główna">
+          <span className="inline-block h-2.5 w-2.5 shrink-0 rounded-full bg-primary" aria-hidden />
+          <img
+            src={dmbkLogo}
+            alt="DMBK"
+            className="block h-9 w-auto max-w-[8rem] object-contain"
+          />
         </Link>
 
         <nav className="hidden md:flex items-center gap-7 text-sm font-medium uppercase tracking-wider">

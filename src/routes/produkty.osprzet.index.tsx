@@ -1,15 +1,20 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
-import { ArrowRight, ChevronRight, Wheat, Mountain, TreePine, Container, Waves } from "lucide-react";
-import bucketImg from "@/assets/product-bucket.jpg";
-import walImg from "@/assets/wal-pryzmowy-01.png.asset.json";
+import { ArrowRight, ChevronRight, Wheat, Mountain, Waves, Shovel, PackageOpen, RotateCw, Cog } from "lucide-react";
+import walImg from "@/assets/wal-pryzmowy-01.png";
+import spychImg from "@/assets/spych-do-kiszonki-03.png";
+import plugImg from "@/assets/plug-rownajacy-03.png";
+import transportBoxImg from "@/assets/skrzynie-transportowe-03.jpg";
+import screeningBucketImg from "@/assets/lyzka-azurowa-01.jpg";
+import screeningDrumImg from "@/assets/beben-przesiewajacy.jpg";
+import mixerImg from "@/assets/mieszalnik-materialow-sypkich.png";
 
 export const Route = createFileRoute("/produkty/osprzet/")({
   head: () => ({
     meta: [
       { title: "Osprzęt rolniczy i przemysłowy — DMBK" },
-      { name: "description", content: "Spychy do kiszonki i kamieni, osprzęt do drewna, duże łyżki przemysłowe i rolnicze, wał pryzmowy. Produkcja DMBK pod konkretną maszynę." },
-      { property: "og:image", content: bucketImg },
+      { name: "description", content: "Skrzynie transportowe, pługi równające, spychy do kiszonki, łyżki ażurowe, wały pryzmowe, mieszalniki i bębny przesiewające DMBK." },
+      { property: "og:image", content: spychImg },
     ],
   }),
   component: Osprzet,
@@ -17,40 +22,60 @@ export const Route = createFileRoute("/produkty/osprzet/")({
 
 const products = [
   {
+    icon: PackageOpen,
+    title: "Skrzynie transportowe",
+    desc: "Zamykane skrzynie DMBK do przewozu narzędzi, części, materiałów i wyposażenia potrzebnego w gospodarstwie.",
+    specs: ["Mocowanie do TUZ", "Zamykana stalowa konstrukcja", "Oświetlenie i elementy odblaskowe"],
+    img: transportBoxImg,
+    to: "/produkty/osprzet/skrzynie-transportowe" as const,
+  },
+  {
+    icon: Shovel,
+    title: "Pług równający",
+    desc: "Pług DMBK do wyrównywania ziemi, kruszywa, dróg gruntowych, placów i terenu gospodarstwa.",
+    specs: ["Profilowany lemiesz", "Wymienna listwa robocza", "Mocowanie do ciągnika"],
+    img: plugImg,
+    to: "/produkty/osprzet/plug-rownajacy" as const,
+  },
+  {
     icon: Wheat,
-    title: "Spychy do kiszonki",
-    desc: "Wytrzymałe spychy do silosów i pryzm. Wzmocnione krawędzie, odporność na intensywną pracę.",
-    specs: ["Szerokości robocze pod zamówienie", "Wzmocnione lemiesze", "Mocowania pod ładowacz"],
-    img: bucketImg,
+    title: "Spych do kiszonki",
+    desc: "Spych DMBK do sprawnego rozprowadzania i równomiernego układania zielonki na pryzmach oraz w silosach.",
+    specs: ["Szeroka powierzchnia robocza", "Wzmocniona dolna krawędź", "Mocowanie dopasowane do maszyny"],
+    img: spychImg,
+    to: "/produkty/osprzet/spych-do-kiszonki" as const,
   },
   {
     icon: Mountain,
-    title: "Spychy do kamieni",
-    desc: "Konstrukcje do pracy w trudnym terenie. Geometria zoptymalizowana pod kruszywo i kamień.",
-    specs: ["Stal o podwyższonej twardości", "Wzmocnione spawy", "Indywidualne wymiary"],
-    img: bucketImg,
-  },
-  {
-    icon: TreePine,
-    title: "Osprzęt do drewna",
-    desc: "Chwytaki, widły i osprzęt leśny — produkcja pod konkretną maszynę i specyfikę pracy.",
-    specs: ["Pod ładowacze czołowe", "Wzmocniona rama", "Odporność na uderzenia"],
-    img: bucketImg,
-  },
-  {
-    icon: Container,
-    title: "Łyżki przemysłowe i rolnicze",
-    desc: "Duże łyżki do maszyn rolniczych i przemysłowych — pełna produkcja własna pod wymiar.",
-    specs: ["Pojemności pod projekt", "Zęby wymienne", "Lakierowanie ochronne"],
-    img: bucketImg,
+    title: "Łyżka ażurowa / przesiewowa",
+    desc: "Łyżka DMBK do zbierania kamieni i oddzielania ich od ziemi, piasku oraz innych drobnych materiałów.",
+    specs: ["Ażurowa konstrukcja", "Wzmocniona krawędź z zębami", "Mocowanie dopasowane do maszyny"],
+    img: screeningBucketImg,
+    to: "/produkty/osprzet/lyzka-azurowa" as const,
   },
   {
     icon: Waves,
     title: "Wał pryzmowy do ugniatania kiszonki",
     desc: "Wał pryzmowy DMBK do dogniatania kiszonki w pryzmach i silosach. Profilowane pierścienie robocze zagęszczają materiał podczas przejazdu ciągnikiem.",
     specs: ["Profilowane pierścienie dogniatające", "Spawana konstrukcja stalowa", "Mocowanie do ciągnika"],
-    img: walImg.url,
+    img: walImg,
     to: "/produkty/osprzet/wal-pryzmowy" as const,
+  },
+  {
+    icon: Cog,
+    title: "Mieszalnik do materiałów sypkich",
+    desc: "Mieszalnik DMBK do szybkiego i równomiernego przygotowywania mieszanek bezpośrednio w miejscu pracy.",
+    specs: ["Wewnętrzny układ mieszający", "Osłona komory mieszania", "Mocowanie pod maszynę klienta"],
+    img: mixerImg,
+    to: "/produkty/osprzet/mieszalnik-materialow-sypkich" as const,
+  },
+  {
+    icon: RotateCw,
+    title: "Bęben przesiewający",
+    desc: "Bęben DMBK do rozdzielania ziemi, kompostu, kruszywa i innych materiałów sypkich według wielkości.",
+    specs: ["Wytrzymała siatka stalowa", "Wzmocniona konstrukcja", "Wymiary i oczka pod zamówienie"],
+    img: screeningDrumImg,
+    to: "/produkty/osprzet/beben-przesiewajacy" as const,
   },
 ];
 
@@ -65,19 +90,26 @@ function Osprzet() {
         </div>
       </section>
 
-      <section className="border-b border-border">
-        <div className="container-x py-16 lg:py-20 grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <span className="text-xs uppercase tracking-[0.25em] text-primary">/ 02 — Osprzęt</span>
-            <h1 className="mt-3 font-display text-5xl lg:text-6xl uppercase leading-[0.95]">
-              Osprzęt rolniczy i przemysłowy
+      <section className="relative overflow-hidden border-b border-border">
+        <div className="absolute inset-0 grain opacity-40" aria-hidden />
+        <div className="container-x relative py-16 lg:py-24">
+          <div className="max-w-5xl">
+            <span className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-primary">
+              <span className="h-px w-10 bg-primary" /> / 02 — Osprzęt
+            </span>
+            <h1 className="mt-5 max-w-4xl font-display text-5xl sm:text-6xl lg:text-7xl uppercase leading-[0.92] text-balance">
+              Osprzęt rolniczy <span className="text-primary">i przemysłowy</span>
             </h1>
-            <p className="mt-6 text-muted-foreground leading-relaxed">
-              Produkujemy wytrzymały osprzęt do maszyn rolniczych i przemysłowych przeznaczony do
-              ciężkiej pracy w gospodarstwach, tartakach i przemyśle. Wzmocnione konstrukcje, trwałe
-              spawy, produkcja według indywidualnych wymiarów.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+          </div>
+
+          <div className="mt-10 grid gap-8 border-t border-border pt-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(280px,0.6fr)] lg:gap-16">
+            <div>
+              <p className="max-w-3xl text-base leading-relaxed text-muted-foreground lg:text-lg">
+                Produkujemy wytrzymały osprzęt do maszyn rolniczych i przemysłowych przeznaczony do
+                ciężkiej pracy w gospodarstwach, tartakach i przemyśle. Wzmocnione konstrukcje, trwałe
+                spawy i produkcja według indywidualnych wymiarów.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href="#realizacje"
                 className="inline-flex items-center gap-2 bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-wider text-primary-foreground hover:-translate-y-0.5 transition-transform"
@@ -90,11 +122,14 @@ function Osprzet() {
               >
                 Wyślij zapytanie
               </Link>
+              </div>
             </div>
-          </div>
-          <div className="relative">
-            <div className="absolute -inset-6 bg-primary/10 blur-3xl" aria-hidden />
-            <img src={bucketImg} alt="Osprzęt DMBK" className="relative w-full object-cover border border-border" />
+
+            <div className="grid grid-cols-2 gap-px border border-border bg-border text-xs uppercase tracking-widest sm:grid-cols-3 lg:grid-cols-1">
+              <div className="bg-background p-4"><span className="text-primary">01</span><span className="ml-3">Produkcja na wymiar</span></div>
+              <div className="bg-background p-4"><span className="text-primary">02</span><span className="ml-3">Solidna stal</span></div>
+              <div className="col-span-2 bg-background p-4 sm:col-span-1"><span className="text-primary">03</span><span className="ml-3">Mocowanie pod maszynę</span></div>
+            </div>
           </div>
         </div>
       </section>
@@ -130,21 +165,17 @@ function Osprzet() {
                   <span
                     className={`mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-primary group-hover:gap-3 transition-all`}
                   >
-                    {p.to ? "Zobacz produkt" : "Zapytaj o ten produkt"} <ArrowRight size={14} />
+                    Zobacz produkt <ArrowRight size={14} />
                   </span>
                 </div>
               </>
             );
             const articleClass =
               "group h-full border border-border bg-card overflow-hidden hover:border-primary/60 transition-colors";
-            return p.to ? (
+            return (
               <Link key={p.title} to={p.to} className={`block ${articleClass}`}>
                 {body}
               </Link>
-            ) : (
-              <article key={p.title} className={articleClass}>
-                {body}
-              </article>
             );
           })}
         </div>
