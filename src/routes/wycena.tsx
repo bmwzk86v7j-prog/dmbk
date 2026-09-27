@@ -97,7 +97,7 @@ function Quote() {
     }
     const totalSize = [...files, ...list].reduce((sum, file) => sum + file.size, 0);
     if (totalSize > MAX_TOTAL_SIZE) {
-      setError("Łączny rozmiar załączników nie może przekroczyć 25 MB.");
+      setError(t("quote_err_total_size"));
       return;
     }
     setError(null);
@@ -158,7 +158,7 @@ function Quote() {
     } catch (cause) {
       setError(cause instanceof Error && cause.message !== "mail rejected"
         ? cause.message
-        : "Nie udało się wysłać zapytania. Spróbuj ponownie albo napisz bezpośrednio na DMB-k@wp.pl.");
+        : t("quote_err_failed"));
     } finally {
       setSending(false);
     }

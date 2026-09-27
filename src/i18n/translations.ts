@@ -237,6 +237,7 @@ const dict = {
     quote_err_phone: "Podaj poprawny numer telefonu.",
     quote_err_file_type: "Nieobsługiwany format pliku:",
     quote_err_file_size: "Pojedynczy plik przekracza 10 MB:",
+    quote_err_total_size: "Łączny rozmiar załączników nie może przekroczyć 25 MB.",
     quote_err_spam: "Wykryto błąd weryfikacji. Spróbuj ponownie.",
     quote_err_failed: "Nie udało się wysłać. Spróbuj ponownie lub napisz na DMB-k@wp.pl.",
 
@@ -474,6 +475,7 @@ const dict = {
     quote_err_phone: "Please enter a valid phone number.",
     quote_err_file_type: "Unsupported file type:",
     quote_err_file_size: "A single file exceeds 10 MB:",
+    quote_err_total_size: "The total attachment size cannot exceed 25 MB.",
     quote_err_spam: "Verification error. Please try again.",
     quote_err_failed: "Failed to send. Try again or email DMB-k@wp.pl.",
 
@@ -710,6 +712,7 @@ const dict = {
     quote_err_phone: "Bitte eine gültige Telefonnummer angeben.",
     quote_err_file_type: "Nicht unterstütztes Dateiformat:",
     quote_err_file_size: "Eine einzelne Datei überschreitet 10 MB:",
+    quote_err_total_size: "Die Gesamtgröße der Anhänge darf 25 MB nicht überschreiten.",
     quote_err_spam: "Verifizierungsfehler. Bitte erneut versuchen.",
     quote_err_failed: "Senden fehlgeschlagen. Bitte erneut versuchen oder an DMB-k@wp.pl schreiben.",
 
