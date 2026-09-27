@@ -9,47 +9,32 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as GaleriaRouteImport } from './routes/galeria'
-import { Route as KontaktRouteImport } from './routes/kontakt'
-import { Route as OFirmieRouteImport } from './routes/o-firmie'
-import { Route as ProduktyRouteImport } from './routes/produkty'
 import { Route as WycenaRouteImport } from './routes/wycena'
+import { Route as ProduktyRouteImport } from './routes/produkty'
+import { Route as OFirmieRouteImport } from './routes/o-firmie'
+import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as GaleriaRouteImport } from './routes/galeria'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProduktyIndexRouteImport } from './routes/produkty.index'
-import { Route as ProduktyBalastyRouteImport } from './routes/produkty.balasty'
-import { Route as ProduktyKonstrukcjeStaloweRouteImport } from './routes/produkty.konstrukcje-stalowe'
-import { Route as ProduktyProdukcjaNaZamowienieRouteImport } from './routes/produkty.produkcja-na-zamowienie'
-import { Route as ProduktySchodyStaloweRouteImport } from './routes/produkty.schody-stalowe'
 import { Route as ProduktyStaloweKonstrukcjeDachoweRouteImport } from './routes/produkty.stalowe-konstrukcje-dachowe'
-import { Route as ProduktyBalastyIndexRouteImport } from './routes/produkty.balasty.index'
-import { Route as ProduktyBalastyWeightRouteImport } from './routes/produkty.balasty.$weight'
+import { Route as ProduktySchodyStaloweRouteImport } from './routes/produkty.schody-stalowe'
+import { Route as ProduktyProdukcjaNaZamowienieRouteImport } from './routes/produkty.produkcja-na-zamowienie'
+import { Route as ProduktyKonstrukcjeStaloweRouteImport } from './routes/produkty.konstrukcje-stalowe'
+import { Route as ProduktyBalastyRouteImport } from './routes/produkty.balasty'
 import { Route as ProduktyOsprzetIndexRouteImport } from './routes/produkty.osprzet.index'
-import { Route as ProduktyOsprzetBebenPrzesiewajacyRouteImport } from './routes/produkty.osprzet.beben-przesiewajacy'
-import { Route as ProduktyOsprzetLyzkaAzurowaRouteImport } from './routes/produkty.osprzet.lyzka-azurowa'
-import { Route as ProduktyOsprzetMieszalnikMaterialowSypkichRouteImport } from './routes/produkty.osprzet.mieszalnik-materialow-sypkich'
-import { Route as ProduktyOsprzetPlugRownajacyRouteImport } from './routes/produkty.osprzet.plug-rownajacy'
-import { Route as ProduktyOsprzetSkrzynieTransportoweRouteImport } from './routes/produkty.osprzet.skrzynie-transportowe'
-import { Route as ProduktyOsprzetSpychDoKiszonkiRouteImport } from './routes/produkty.osprzet.spych-do-kiszonki'
+import { Route as ProduktyBalastyIndexRouteImport } from './routes/produkty.balasty.index'
 import { Route as ProduktyOsprzetWalPryzmowyRouteImport } from './routes/produkty.osprzet.wal-pryzmowy'
+import { Route as ProduktyOsprzetSpychDoKiszonkiRouteImport } from './routes/produkty.osprzet.spych-do-kiszonki'
+import { Route as ProduktyOsprzetSkrzynieTransportoweRouteImport } from './routes/produkty.osprzet.skrzynie-transportowe'
+import { Route as ProduktyOsprzetPlugRownajacyRouteImport } from './routes/produkty.osprzet.plug-rownajacy'
+import { Route as ProduktyOsprzetMieszalnikMaterialowSypkichRouteImport } from './routes/produkty.osprzet.mieszalnik-materialow-sypkich'
+import { Route as ProduktyOsprzetLyzkaAzurowaRouteImport } from './routes/produkty.osprzet.lyzka-azurowa'
+import { Route as ProduktyOsprzetBebenPrzesiewajacyRouteImport } from './routes/produkty.osprzet.beben-przesiewajacy'
+import { Route as ProduktyBalastyWeightRouteImport } from './routes/produkty.balasty.$weight'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GaleriaRoute = GaleriaRouteImport.update({
-  id: '/galeria',
-  path: '/galeria',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const KontaktRoute = KontaktRouteImport.update({
-  id: '/kontakt',
-  path: '/kontakt',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const OFirmieRoute = OFirmieRouteImport.update({
-  id: '/o-firmie',
-  path: '/o-firmie',
+const WycenaRoute = WycenaRouteImport.update({
+  id: '/wycena',
+  path: '/wycena',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProduktyRoute = ProduktyRouteImport.update({
@@ -57,36 +42,29 @@ const ProduktyRoute = ProduktyRouteImport.update({
   path: '/produkty',
   getParentRoute: () => rootRouteImport,
 } as any)
-const WycenaRoute = WycenaRouteImport.update({
-  id: '/wycena',
-  path: '/wycena',
+const OFirmieRoute = OFirmieRouteImport.update({
+  id: '/o-firmie',
+  path: '/o-firmie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontaktRoute = KontaktRouteImport.update({
+  id: '/kontakt',
+  path: '/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GaleriaRoute = GaleriaRouteImport.update({
+  id: '/galeria',
+  path: '/galeria',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProduktyIndexRoute = ProduktyIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => ProduktyRoute,
-} as any)
-const ProduktyBalastyRoute = ProduktyBalastyRouteImport.update({
-  id: '/balasty',
-  path: '/balasty',
-  getParentRoute: () => ProduktyRoute,
-} as any)
-const ProduktyKonstrukcjeStaloweRoute =
-  ProduktyKonstrukcjeStaloweRouteImport.update({
-    id: '/konstrukcje-stalowe',
-    path: '/konstrukcje-stalowe',
-    getParentRoute: () => ProduktyRoute,
-  } as any)
-const ProduktyProdukcjaNaZamowienieRoute =
-  ProduktyProdukcjaNaZamowienieRouteImport.update({
-    id: '/produkcja-na-zamowienie',
-    path: '/produkcja-na-zamowienie',
-    getParentRoute: () => ProduktyRoute,
-  } as any)
-const ProduktySchodyStaloweRoute = ProduktySchodyStaloweRouteImport.update({
-  id: '/schody-stalowe',
-  path: '/schody-stalowe',
   getParentRoute: () => ProduktyRoute,
 } as any)
 const ProduktyStaloweKonstrukcjeDachoweRoute =
@@ -95,49 +73,42 @@ const ProduktyStaloweKonstrukcjeDachoweRoute =
     path: '/stalowe-konstrukcje-dachowe',
     getParentRoute: () => ProduktyRoute,
   } as any)
-const ProduktyBalastyIndexRoute = ProduktyBalastyIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => ProduktyBalastyRoute,
+const ProduktySchodyStaloweRoute = ProduktySchodyStaloweRouteImport.update({
+  id: '/schody-stalowe',
+  path: '/schody-stalowe',
+  getParentRoute: () => ProduktyRoute,
 } as any)
-const ProduktyBalastyWeightRoute = ProduktyBalastyWeightRouteImport.update({
-  id: '/$weight',
-  path: '/$weight',
-  getParentRoute: () => ProduktyBalastyRoute,
+const ProduktyProdukcjaNaZamowienieRoute =
+  ProduktyProdukcjaNaZamowienieRouteImport.update({
+    id: '/produkcja-na-zamowienie',
+    path: '/produkcja-na-zamowienie',
+    getParentRoute: () => ProduktyRoute,
+  } as any)
+const ProduktyKonstrukcjeStaloweRoute =
+  ProduktyKonstrukcjeStaloweRouteImport.update({
+    id: '/konstrukcje-stalowe',
+    path: '/konstrukcje-stalowe',
+    getParentRoute: () => ProduktyRoute,
+  } as any)
+const ProduktyBalastyRoute = ProduktyBalastyRouteImport.update({
+  id: '/balasty',
+  path: '/balasty',
+  getParentRoute: () => ProduktyRoute,
 } as any)
 const ProduktyOsprzetIndexRoute = ProduktyOsprzetIndexRouteImport.update({
   id: '/osprzet/',
   path: '/osprzet/',
   getParentRoute: () => ProduktyRoute,
 } as any)
-const ProduktyOsprzetBebenPrzesiewajacyRoute =
-  ProduktyOsprzetBebenPrzesiewajacyRouteImport.update({
-    id: '/osprzet/beben-przesiewajacy',
-    path: '/osprzet/beben-przesiewajacy',
-    getParentRoute: () => ProduktyRoute,
-  } as any)
-const ProduktyOsprzetLyzkaAzurowaRoute =
-  ProduktyOsprzetLyzkaAzurowaRouteImport.update({
-    id: '/osprzet/lyzka-azurowa',
-    path: '/osprzet/lyzka-azurowa',
-    getParentRoute: () => ProduktyRoute,
-  } as any)
-const ProduktyOsprzetMieszalnikMaterialowSypkichRoute =
-  ProduktyOsprzetMieszalnikMaterialowSypkichRouteImport.update({
-    id: '/osprzet/mieszalnik-materialow-sypkich',
-    path: '/osprzet/mieszalnik-materialow-sypkich',
-    getParentRoute: () => ProduktyRoute,
-  } as any)
-const ProduktyOsprzetPlugRownajacyRoute =
-  ProduktyOsprzetPlugRownajacyRouteImport.update({
-    id: '/osprzet/plug-rownajacy',
-    path: '/osprzet/plug-rownajacy',
-    getParentRoute: () => ProduktyRoute,
-  } as any)
-const ProduktyOsprzetSkrzynieTransportoweRoute =
-  ProduktyOsprzetSkrzynieTransportoweRouteImport.update({
-    id: '/osprzet/skrzynie-transportowe',
-    path: '/osprzet/skrzynie-transportowe',
+const ProduktyBalastyIndexRoute = ProduktyBalastyIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ProduktyBalastyRoute,
+} as any)
+const ProduktyOsprzetWalPryzmowyRoute =
+  ProduktyOsprzetWalPryzmowyRouteImport.update({
+    id: '/osprzet/wal-pryzmowy',
+    path: '/osprzet/wal-pryzmowy',
     getParentRoute: () => ProduktyRoute,
   } as any)
 const ProduktyOsprzetSpychDoKiszonkiRoute =
@@ -146,12 +117,41 @@ const ProduktyOsprzetSpychDoKiszonkiRoute =
     path: '/osprzet/spych-do-kiszonki',
     getParentRoute: () => ProduktyRoute,
   } as any)
-const ProduktyOsprzetWalPryzmowyRoute =
-  ProduktyOsprzetWalPryzmowyRouteImport.update({
-    id: '/osprzet/wal-pryzmowy',
-    path: '/osprzet/wal-pryzmowy',
+const ProduktyOsprzetSkrzynieTransportoweRoute =
+  ProduktyOsprzetSkrzynieTransportoweRouteImport.update({
+    id: '/osprzet/skrzynie-transportowe',
+    path: '/osprzet/skrzynie-transportowe',
     getParentRoute: () => ProduktyRoute,
   } as any)
+const ProduktyOsprzetPlugRownajacyRoute =
+  ProduktyOsprzetPlugRownajacyRouteImport.update({
+    id: '/osprzet/plug-rownajacy',
+    path: '/osprzet/plug-rownajacy',
+    getParentRoute: () => ProduktyRoute,
+  } as any)
+const ProduktyOsprzetMieszalnikMaterialowSypkichRoute =
+  ProduktyOsprzetMieszalnikMaterialowSypkichRouteImport.update({
+    id: '/osprzet/mieszalnik-materialow-sypkich',
+    path: '/osprzet/mieszalnik-materialow-sypkich',
+    getParentRoute: () => ProduktyRoute,
+  } as any)
+const ProduktyOsprzetLyzkaAzurowaRoute =
+  ProduktyOsprzetLyzkaAzurowaRouteImport.update({
+    id: '/osprzet/lyzka-azurowa',
+    path: '/osprzet/lyzka-azurowa',
+    getParentRoute: () => ProduktyRoute,
+  } as any)
+const ProduktyOsprzetBebenPrzesiewajacyRoute =
+  ProduktyOsprzetBebenPrzesiewajacyRouteImport.update({
+    id: '/osprzet/beben-przesiewajacy',
+    path: '/osprzet/beben-przesiewajacy',
+    getParentRoute: () => ProduktyRoute,
+  } as any)
+const ProduktyBalastyWeightRoute = ProduktyBalastyWeightRouteImport.update({
+  id: '/$weight',
+  path: '/$weight',
+  getParentRoute: () => ProduktyBalastyRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -308,32 +308,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/galeria': {
-      id: '/galeria'
-      path: '/galeria'
-      fullPath: '/galeria'
-      preLoaderRoute: typeof GaleriaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/kontakt': {
-      id: '/kontakt'
-      path: '/kontakt'
-      fullPath: '/kontakt'
-      preLoaderRoute: typeof KontaktRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/o-firmie': {
-      id: '/o-firmie'
-      path: '/o-firmie'
-      fullPath: '/o-firmie'
-      preLoaderRoute: typeof OFirmieRouteImport
+    '/wycena': {
+      id: '/wycena'
+      path: '/wycena'
+      fullPath: '/wycena'
+      preLoaderRoute: typeof WycenaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/produkty': {
@@ -343,11 +322,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProduktyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/wycena': {
-      id: '/wycena'
-      path: '/wycena'
-      fullPath: '/wycena'
-      preLoaderRoute: typeof WycenaRouteImport
+    '/o-firmie': {
+      id: '/o-firmie'
+      path: '/o-firmie'
+      fullPath: '/o-firmie'
+      preLoaderRoute: typeof OFirmieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontakt': {
+      id: '/kontakt'
+      path: '/kontakt'
+      fullPath: '/kontakt'
+      preLoaderRoute: typeof KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/galeria': {
+      id: '/galeria'
+      path: '/galeria'
+      fullPath: '/galeria'
+      preLoaderRoute: typeof GaleriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/produkty/': {
@@ -357,25 +357,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProduktyIndexRouteImport
       parentRoute: typeof ProduktyRoute
     }
-    '/produkty/balasty': {
-      id: '/produkty/balasty'
-      path: '/balasty'
-      fullPath: '/produkty/balasty'
-      preLoaderRoute: typeof ProduktyBalastyRouteImport
-      parentRoute: typeof ProduktyRoute
-    }
-    '/produkty/konstrukcje-stalowe': {
-      id: '/produkty/konstrukcje-stalowe'
-      path: '/konstrukcje-stalowe'
-      fullPath: '/produkty/konstrukcje-stalowe'
-      preLoaderRoute: typeof ProduktyKonstrukcjeStaloweRouteImport
-      parentRoute: typeof ProduktyRoute
-    }
-    '/produkty/produkcja-na-zamowienie': {
-      id: '/produkty/produkcja-na-zamowienie'
-      path: '/produkcja-na-zamowienie'
-      fullPath: '/produkty/produkcja-na-zamowienie'
-      preLoaderRoute: typeof ProduktyProdukcjaNaZamowienieRouteImport
+    '/produkty/stalowe-konstrukcje-dachowe': {
+      id: '/produkty/stalowe-konstrukcje-dachowe'
+      path: '/stalowe-konstrukcje-dachowe'
+      fullPath: '/produkty/stalowe-konstrukcje-dachowe'
+      preLoaderRoute: typeof ProduktyStaloweKonstrukcjeDachoweRouteImport
       parentRoute: typeof ProduktyRoute
     }
     '/produkty/schody-stalowe': {
@@ -385,11 +371,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProduktySchodyStaloweRouteImport
       parentRoute: typeof ProduktyRoute
     }
-    '/produkty/stalowe-konstrukcje-dachowe': {
-      id: '/produkty/stalowe-konstrukcje-dachowe'
-      path: '/stalowe-konstrukcje-dachowe'
-      fullPath: '/produkty/stalowe-konstrukcje-dachowe'
-      preLoaderRoute: typeof ProduktyStaloweKonstrukcjeDachoweRouteImport
+    '/produkty/produkcja-na-zamowienie': {
+      id: '/produkty/produkcja-na-zamowienie'
+      path: '/produkcja-na-zamowienie'
+      fullPath: '/produkty/produkcja-na-zamowienie'
+      preLoaderRoute: typeof ProduktyProdukcjaNaZamowienieRouteImport
+      parentRoute: typeof ProduktyRoute
+    }
+    '/produkty/konstrukcje-stalowe': {
+      id: '/produkty/konstrukcje-stalowe'
+      path: '/konstrukcje-stalowe'
+      fullPath: '/produkty/konstrukcje-stalowe'
+      preLoaderRoute: typeof ProduktyKonstrukcjeStaloweRouteImport
+      parentRoute: typeof ProduktyRoute
+    }
+    '/produkty/balasty': {
+      id: '/produkty/balasty'
+      path: '/balasty'
+      fullPath: '/produkty/balasty'
+      preLoaderRoute: typeof ProduktyBalastyRouteImport
+      parentRoute: typeof ProduktyRoute
+    }
+    '/produkty/osprzet/': {
+      id: '/produkty/osprzet/'
+      path: '/osprzet'
+      fullPath: '/produkty/osprzet/'
+      preLoaderRoute: typeof ProduktyOsprzetIndexRouteImport
       parentRoute: typeof ProduktyRoute
     }
     '/produkty/balasty/': {
@@ -399,53 +406,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProduktyBalastyIndexRouteImport
       parentRoute: typeof ProduktyBalastyRoute
     }
-    '/produkty/balasty/$weight': {
-      id: '/produkty/balasty/$weight'
-      path: '/$weight'
-      fullPath: '/produkty/balasty/$weight'
-      preLoaderRoute: typeof ProduktyBalastyWeightRouteImport
-      parentRoute: typeof ProduktyBalastyRoute
-    }
-    '/produkty/osprzet/': {
-      id: '/produkty/osprzet/'
-      path: '/osprzet'
-      fullPath: '/produkty/osprzet/'
-      preLoaderRoute: typeof ProduktyOsprzetIndexRouteImport
-      parentRoute: typeof ProduktyRoute
-    }
-    '/produkty/osprzet/beben-przesiewajacy': {
-      id: '/produkty/osprzet/beben-przesiewajacy'
-      path: '/osprzet/beben-przesiewajacy'
-      fullPath: '/produkty/osprzet/beben-przesiewajacy'
-      preLoaderRoute: typeof ProduktyOsprzetBebenPrzesiewajacyRouteImport
-      parentRoute: typeof ProduktyRoute
-    }
-    '/produkty/osprzet/lyzka-azurowa': {
-      id: '/produkty/osprzet/lyzka-azurowa'
-      path: '/osprzet/lyzka-azurowa'
-      fullPath: '/produkty/osprzet/lyzka-azurowa'
-      preLoaderRoute: typeof ProduktyOsprzetLyzkaAzurowaRouteImport
-      parentRoute: typeof ProduktyRoute
-    }
-    '/produkty/osprzet/mieszalnik-materialow-sypkich': {
-      id: '/produkty/osprzet/mieszalnik-materialow-sypkich'
-      path: '/osprzet/mieszalnik-materialow-sypkich'
-      fullPath: '/produkty/osprzet/mieszalnik-materialow-sypkich'
-      preLoaderRoute: typeof ProduktyOsprzetMieszalnikMaterialowSypkichRouteImport
-      parentRoute: typeof ProduktyRoute
-    }
-    '/produkty/osprzet/plug-rownajacy': {
-      id: '/produkty/osprzet/plug-rownajacy'
-      path: '/osprzet/plug-rownajacy'
-      fullPath: '/produkty/osprzet/plug-rownajacy'
-      preLoaderRoute: typeof ProduktyOsprzetPlugRownajacyRouteImport
-      parentRoute: typeof ProduktyRoute
-    }
-    '/produkty/osprzet/skrzynie-transportowe': {
-      id: '/produkty/osprzet/skrzynie-transportowe'
-      path: '/osprzet/skrzynie-transportowe'
-      fullPath: '/produkty/osprzet/skrzynie-transportowe'
-      preLoaderRoute: typeof ProduktyOsprzetSkrzynieTransportoweRouteImport
+    '/produkty/osprzet/wal-pryzmowy': {
+      id: '/produkty/osprzet/wal-pryzmowy'
+      path: '/osprzet/wal-pryzmowy'
+      fullPath: '/produkty/osprzet/wal-pryzmowy'
+      preLoaderRoute: typeof ProduktyOsprzetWalPryzmowyRouteImport
       parentRoute: typeof ProduktyRoute
     }
     '/produkty/osprzet/spych-do-kiszonki': {
@@ -455,12 +420,47 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProduktyOsprzetSpychDoKiszonkiRouteImport
       parentRoute: typeof ProduktyRoute
     }
-    '/produkty/osprzet/wal-pryzmowy': {
-      id: '/produkty/osprzet/wal-pryzmowy'
-      path: '/osprzet/wal-pryzmowy'
-      fullPath: '/produkty/osprzet/wal-pryzmowy'
-      preLoaderRoute: typeof ProduktyOsprzetWalPryzmowyRouteImport
+    '/produkty/osprzet/skrzynie-transportowe': {
+      id: '/produkty/osprzet/skrzynie-transportowe'
+      path: '/osprzet/skrzynie-transportowe'
+      fullPath: '/produkty/osprzet/skrzynie-transportowe'
+      preLoaderRoute: typeof ProduktyOsprzetSkrzynieTransportoweRouteImport
       parentRoute: typeof ProduktyRoute
+    }
+    '/produkty/osprzet/plug-rownajacy': {
+      id: '/produkty/osprzet/plug-rownajacy'
+      path: '/osprzet/plug-rownajacy'
+      fullPath: '/produkty/osprzet/plug-rownajacy'
+      preLoaderRoute: typeof ProduktyOsprzetPlugRownajacyRouteImport
+      parentRoute: typeof ProduktyRoute
+    }
+    '/produkty/osprzet/mieszalnik-materialow-sypkich': {
+      id: '/produkty/osprzet/mieszalnik-materialow-sypkich'
+      path: '/osprzet/mieszalnik-materialow-sypkich'
+      fullPath: '/produkty/osprzet/mieszalnik-materialow-sypkich'
+      preLoaderRoute: typeof ProduktyOsprzetMieszalnikMaterialowSypkichRouteImport
+      parentRoute: typeof ProduktyRoute
+    }
+    '/produkty/osprzet/lyzka-azurowa': {
+      id: '/produkty/osprzet/lyzka-azurowa'
+      path: '/osprzet/lyzka-azurowa'
+      fullPath: '/produkty/osprzet/lyzka-azurowa'
+      preLoaderRoute: typeof ProduktyOsprzetLyzkaAzurowaRouteImport
+      parentRoute: typeof ProduktyRoute
+    }
+    '/produkty/osprzet/beben-przesiewajacy': {
+      id: '/produkty/osprzet/beben-przesiewajacy'
+      path: '/osprzet/beben-przesiewajacy'
+      fullPath: '/produkty/osprzet/beben-przesiewajacy'
+      preLoaderRoute: typeof ProduktyOsprzetBebenPrzesiewajacyRouteImport
+      parentRoute: typeof ProduktyRoute
+    }
+    '/produkty/balasty/$weight': {
+      id: '/produkty/balasty/$weight'
+      path: '/$weight'
+      fullPath: '/produkty/balasty/$weight'
+      preLoaderRoute: typeof ProduktyBalastyWeightRouteImport
+      parentRoute: typeof ProduktyBalastyRoute
     }
   }
 }
