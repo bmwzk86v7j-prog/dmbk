@@ -16,11 +16,14 @@ const GROUPS = [
 export const Route = createFileRoute("/produkty/balasty/")({
   head: () => ({
     meta: [
-      { title: "Balasty do ciągników — grupy wagowe | DMBK" },
+      { title: "Balasty i obciążniki do ciągników 600–1800 kg | DMBK" },
       {
         name: "description",
-        content: "Balasty do ciągników DMBK w czterech grupach wagowych. Wybierz masę, obudowę i dostępne wyposażenie.",
+        content: "Producent balastów i obciążników do ciągników od 600 do 1800 kg. Solidne stalowe obudowy, oświetlenie LED i dostawa w Polsce, Niemczech oraz całej Europie.",
       },
+      { property: "og:title", content: "Balasty i obciążniki do ciągników 600–1800 kg | DMBK" },
+      { property: "og:description", content: "Balasty do ciągników DMBK w czterech przedziałach wagowych. Polska produkcja i dostawa w całej Europie." },
+      { property: "og:type", content: "website" },
     ],
   }),
   component: BalastyIndexPage,

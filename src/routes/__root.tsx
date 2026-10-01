@@ -73,14 +73,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "DMBK — Konstrukcje stalowe i produkcja osprzętu" },
-      { name: "description", content: "DMBK — nowoczesna produkcja konstrukcji stalowych: balasty, łyżki do koparek, konstrukcje stalowe i projekty specjalne. Solarnia, Polska." },
-      { property: "og:title", content: "DMBK — Konstrukcje stalowe i produkcja osprzętu" },
-      { property: "og:description", content: "DMBK — nowoczesna produkcja konstrukcji stalowych: balasty, łyżki do koparek, konstrukcje stalowe i projekty specjalne. Solarnia, Polska." },
+      { title: "Balasty do ciągników i osprzęt rolniczy | DMBK" },
+      { name: "description", content: "DMBK — producent balastów, obciążników i osprzętu rolniczego do ciągników oraz maszyn. Polska produkcja i dostawa w całej Europie." },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { property: "og:site_name", content: "DMBK" },
+      { property: "og:locale", content: "pl_PL" },
+      { property: "og:title", content: "Balasty do ciągników i osprzęt rolniczy | DMBK" },
+      { property: "og:description", content: "Polski producent balastów, obciążników i osprzętu rolniczego. Transport w Polsce, Niemczech i całej Europie." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "DMBK — Konstrukcje stalowe i produkcja osprzętu" },
-      { name: "twitter:description", content: "DMBK — nowoczesna produkcja konstrukcji stalowych: balasty, łyżki do koparek, konstrukcje stalowe i projekty specjalne. Solarnia, Polska." },
+      { name: "twitter:title", content: "Balasty do ciągników i osprzęt rolniczy | DMBK" },
+      { name: "twitter:description", content: "Polski producent balastów, obciążników i osprzętu rolniczego z dostawą w całej Europie." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/db8ac1ea-fb0f-4e1f-8e25-ce5846151b12/id-preview-d2a0ece2--e1e7cf6c-0b1e-4478-92ee-bf9e98a183de.lovable.app-1779380666530.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/db8ac1ea-fb0f-4e1f-8e25-ce5846151b12/id-preview-d2a0ece2--e1e7cf6c-0b1e-4478-92ee-bf9e98a183de.lovable.app-1779380666530.png" },
     ],
@@ -102,9 +105,39 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pl">
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": ["Organization", "LocalBusiness"],
+              name: "DMBK",
+              url: "https://dmbk.pl",
+              email: "DMB-k@wp.pl",
+              telephone: "+48 536 530 283",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "Strażacka 10",
+                addressLocality: "Solarnia",
+                postalCode: "42-700",
+                addressCountry: "PL",
+              },
+              areaServed: ["PL", "DE", "EU"],
+              knowsAbout: [
+                "balasty do ciągników",
+                "obciążniki do ciągników",
+                "osprzęt rolniczy",
+                "łyżki ażurowe",
+                "spychy do kiszonki",
+                "wały pryzmowe",
+                "skrzynie transportowe do ciągników",
+              ],
+            }),
+          }}
+        />
       </head>
       <body>
         {children}

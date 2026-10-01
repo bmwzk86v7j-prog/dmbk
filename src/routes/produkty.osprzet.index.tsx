@@ -1,19 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
-import { ArrowRight, ChevronRight, Wheat, Mountain, Waves, Shovel, PackageOpen, RotateCw, Cog } from "lucide-react";
+import { ArrowRight, ChevronRight, Wheat, Mountain, Waves, Shovel, PackageOpen, Cog } from "lucide-react";
 import walImg from "@/assets/wal-pryzmowy-01.png";
 import spychImg from "@/assets/spych-do-kiszonki-03.png";
 import plugImg from "@/assets/plug-rownajacy-03.png";
 import transportBoxImg from "@/assets/skrzynie-transportowe-03.jpg";
 import screeningBucketImg from "@/assets/lyzka-azurowa-01.jpg";
-import screeningDrumImg from "@/assets/beben-przesiewajacy.jpg";
 import mixerImg from "@/assets/mieszalnik-materialow-sypkich.png";
 
 export const Route = createFileRoute("/produkty/osprzet/")({
   head: () => ({
     meta: [
-      { title: "Osprzęt rolniczy i przemysłowy — DMBK" },
-      { name: "description", content: "Skrzynie transportowe, pługi równające, spychy do kiszonki, łyżki ażurowe, wały pryzmowe, mieszalniki i bębny przesiewające DMBK." },
+      { title: "Osprzęt rolniczy do ciągników i maszyn | DMBK" },
+      { name: "description", content: "Producent osprzętu rolniczego DMBK: skrzynie transportowe, pługi równające, spychy do kiszonki, łyżki ażurowe, wały pryzmowe i mieszalniki. Dostawa w Polsce, Niemczech i Europie." },
+      { property: "og:title", content: "Osprzęt rolniczy do ciągników i maszyn | DMBK" },
+      { property: "og:description", content: "Solidny osprzęt rolniczy produkowany w Polsce. Wykonanie pod maszynę i dostawa w całej Europie." },
+      { property: "og:type", content: "website" },
       { property: "og:image", content: spychImg },
     ],
   }),
@@ -68,14 +70,6 @@ const products = [
     specs: ["Wewnętrzny układ mieszający", "Osłona komory mieszania", "Mocowanie pod maszynę klienta"],
     img: mixerImg,
     to: "/produkty/osprzet/mieszalnik-materialow-sypkich" as const,
-  },
-  {
-    icon: RotateCw,
-    title: "Bęben przesiewający",
-    desc: "Bęben DMBK do rozdzielania ziemi, kompostu, kruszywa i innych materiałów sypkich według wielkości.",
-    specs: ["Wytrzymała siatka stalowa", "Wzmocniona konstrukcja", "Wymiary i oczka pod zamówienie"],
-    img: screeningDrumImg,
-    to: "/produkty/osprzet/beben-przesiewajacy" as const,
   },
 ];
 
