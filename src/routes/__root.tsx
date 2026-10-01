@@ -73,16 +73,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Balasty do ciągników i osprzęt rolniczy | DMBK" },
-      { name: "description", content: "DMBK — producent balastów, obciążników i osprzętu rolniczego do ciągników oraz maszyn. Polska produkcja i dostawa w całej Europie." },
+      { title: "DMBK | Balasty do ciągników i osprzęt rolniczy" },
+      { name: "application-name", content: "DMBK" },
+      { name: "description", content: "DMBK Polska — producent balastów, obciążników i osprzętu rolniczego do ciągników oraz maszyn. Polska produkcja i dostawa w całej Europie." },
       { name: "robots", content: "index, follow, max-image-preview:large" },
       { property: "og:site_name", content: "DMBK" },
       { property: "og:locale", content: "pl_PL" },
-      { property: "og:title", content: "Balasty do ciągników i osprzęt rolniczy | DMBK" },
+      { property: "og:title", content: "DMBK | Balasty do ciągników i osprzęt rolniczy" },
       { property: "og:description", content: "Polski producent balastów, obciążników i osprzętu rolniczego. Transport w Polsce, Niemczech i całej Europie." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Balasty do ciągników i osprzęt rolniczy | DMBK" },
+      { name: "twitter:title", content: "DMBK | Balasty do ciągników i osprzęt rolniczy" },
       { name: "twitter:description", content: "Polski producent balastów, obciążników i osprzętu rolniczego z dostawą w całej Europie." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/db8ac1ea-fb0f-4e1f-8e25-ce5846151b12/id-preview-d2a0ece2--e1e7cf6c-0b1e-4478-92ee-bf9e98a183de.lovable.app-1779380666530.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/db8ac1ea-fb0f-4e1f-8e25-ce5846151b12/id-preview-d2a0ece2--e1e7cf6c-0b1e-4478-92ee-bf9e98a183de.lovable.app-1779380666530.png" },
@@ -135,6 +136,25 @@ function RootShell({ children }: { children: React.ReactNode }) {
                 "wały pryzmowe",
                 "skrzynie transportowe do ciągników",
               ],
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "@id": "https://dmbk.pl/#website",
+              url: "https://dmbk.pl/",
+              name: "DMBK",
+              alternateName: ["DMBK Polska", "DMBK Solarnia"],
+              publisher: {
+                "@type": "Organization",
+                name: "DMBK",
+                url: "https://dmbk.pl/",
+              },
+              inLanguage: ["pl-PL", "de-DE", "en-GB"],
             }),
           }}
         />

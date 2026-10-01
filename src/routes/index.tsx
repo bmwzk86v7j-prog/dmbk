@@ -11,9 +11,9 @@ import { useI18n } from "@/i18n/I18nProvider";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Balasty do ciągników i osprzęt rolniczy | DMBK" },
-      { name: "description", content: "DMBK — polski producent balastów, obciążników i osprzętu rolniczego do ciągników oraz maszyn. Produkcja na zamówienie i transport w całej Europie." },
-      { property: "og:title", content: "Balasty do ciągników i osprzęt rolniczy | DMBK" },
+      { title: "DMBK | Balasty do ciągników i osprzęt rolniczy" },
+      { name: "description", content: "Oficjalna strona DMBK. Polski producent balastów, obciążników i osprzętu rolniczego do ciągników oraz maszyn. Produkcja na zamówienie i transport w całej Europie." },
+      { property: "og:title", content: "DMBK | Balasty do ciągników i osprzęt rolniczy" },
       { property: "og:description", content: "Polski producent balastów, obciążników i osprzętu rolniczego. Dostawa do Polski, Niemiec i całej Europy." },
       { property: "og:type", content: "website" },
       { property: "og:image", content: heroImg },
