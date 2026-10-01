@@ -1,0 +1,16 @@
+{
+  "name": "DMBK",
+  "short_name": "DMBK",
+  "description": "Balasty do ciągników i osprzęt rolniczy DMBK",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#171717",
+  "theme_color": "#ff7a00",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
