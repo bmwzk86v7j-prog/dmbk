@@ -13,6 +13,14 @@ import ballastLarge2 from "@/assets/balast-1000-1600-02.png";
 import ballastLarge3 from "@/assets/balast-1000-1600-03.png";
 import ballastLarge4 from "@/assets/balast-1000-1600-04.png";
 import ballastLarge5 from "@/assets/balast-1000-1600-05.png";
+import ballastLarge6 from "@/assets/balast-1000-1600-06.jpg";
+import ballastLarge7 from "@/assets/balast-1000-1600-07.jpg";
+import ballastLarge8 from "@/assets/balast-1000-1600-08.jpg";
+import ballastLarge9 from "@/assets/balast-1000-1600-09.jpg";
+import ballastLarge10 from "@/assets/balast-1000-1600-10.jpg";
+import ballastLarge11 from "@/assets/balast-1000-1600-11.jpg";
+import ballastLarge12 from "@/assets/balast-1000-1600-12.jpg";
+import ballastLarge13 from "@/assets/balast-1000-1600-13.jpg";
 import ballast1800 from "@/assets/balast-1800-01.png";
 import ballast1800Detail2 from "@/assets/balast-1800-02.png";
 import ballast1800Detail3 from "@/assets/balast-1800-03.png";
@@ -36,7 +44,7 @@ const GROUPS = {
   "1000-1600": {
     label: "1000–1600 kg",
     masses: [1000, 1200, 1400, 1600],
-    images: [ballastLarge, ballastLarge2, ballastLarge3, ballastLarge4, ballastLarge5],
+    images: [ballastLarge, ballastLarge2, ballastLarge3, ballastLarge4, ballastLarge5, ballastLarge6, ballastLarge7, ballastLarge8, ballastLarge9, ballastLarge10, ballastLarge11, ballastLarge12, ballastLarge13],
     boxText: "Dostępne wykonanie ze skrzynką lub bez skrzynki.",
   },
   "1800": {
