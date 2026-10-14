@@ -85,8 +85,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "DMBK | Balasty do ciągników i osprzęt rolniczy" },
       { name: "twitter:description", content: "Polski producent balastów, obciążników i osprzętu rolniczego z dostawą w całej Europie." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/db8ac1ea-fb0f-4e1f-8e25-ce5846151b12/id-preview-d2a0ece2--e1e7cf6c-0b1e-4478-92ee-bf9e98a183de.lovable.app-1779380666530.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/db8ac1ea-fb0f-4e1f-8e25-ce5846151b12/id-preview-d2a0ece2--e1e7cf6c-0b1e-4478-92ee-bf9e98a183de.lovable.app-1779380666530.png" },
+      { property: "og:image", content: "https://dmbk.pl/dmbk-logo.png" },
+      { name: "twitter:image", content: "https://dmbk.pl/dmbk-logo.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -121,6 +121,8 @@ function RootShell({ children }: { children: React.ReactNode }) {
               "@type": ["Organization", "LocalBusiness"],
               name: "DMBK",
               url: "https://dmbk.pl",
+              logo: "https://dmbk.pl/dmbk-logo.png",
+              image: "https://dmbk.pl/dmbk-logo.png",
               email: "DMB-k@wp.pl",
               telephone: "+48 536 530 283",
               address: {
@@ -157,6 +159,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
                 "@type": "Organization",
                 name: "DMBK",
                 url: "https://dmbk.pl/",
+                logo: "https://dmbk.pl/dmbk-logo.png",
               },
               inLanguage: ["pl-PL", "de-DE", "en-GB"],
             }),
