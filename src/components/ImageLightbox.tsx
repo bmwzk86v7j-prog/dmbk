@@ -33,6 +33,7 @@ export function ImageLightbox({ children }: { children: ReactNode }) {
     const target = event.target;
     if (!(target instanceof HTMLImageElement)) return;
     if (!target.alt.trim() || target.dataset.noZoom !== undefined) return;
+    if (target.closest("a, button")) return;
 
     event.preventDefault();
     event.stopPropagation();

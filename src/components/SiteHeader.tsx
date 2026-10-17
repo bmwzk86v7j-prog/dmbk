@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { useI18n } from "@/i18n/I18nProvider";
 import dmbkLogo from "@/assets/dmbk-logo-header-gray.png";
 
@@ -8,13 +8,13 @@ const langs = ["PL", "EN", "DE"] as const;
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [phoneOpen, setPhoneOpen] = useState(false);
   const { lang, setLang, t } = useI18n();
 
   const nav = [
     { to: "/", label: t("nav_home") },
     { to: "/o-firmie", label: t("nav_about") },
     { to: "/produkty", label: t("nav_products") },
-    { to: "/galeria", label: t("nav_gallery") },
     { to: "/wycena", label: t("nav_quote") },
     { to: "/kontakt", label: t("nav_contact") },
   ] as const;
@@ -59,17 +59,31 @@ export function SiteHeader() {
           ))}
         </div>
 
+        <button type="button" aria-label="+48 536 530 283" aria-expanded={phoneOpen} aria-controls="mobile-contact" className="mobile-phone md:hidden" onClick={() => { setPhoneOpen((v) => !v); setOpen(false); }}><Phone size={18} /></button>
         <button
-          className="md:hidden p-2 text-foreground"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Menu"
+          className="mobile-menu-toggle md:hidden p-2 text-foreground"
+          onClick={() => { setOpen((v) => !v); setPhoneOpen(false); }}
+          aria-label="Menu" aria-expanded={open} aria-controls="mobile-navigation"
         >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
+      {phoneOpen && (
+        <div id="mobile-contact" className="md:hidden border-t border-border bg-background p-5 shadow-xl" onKeyDown={(event) => { if (event.key === "Escape") setPhoneOpen(false); }}>
+          <div className="flex items-center justify-between gap-4">
+            <span className="text-lg font-semibold">+48 536 530 283</span>
+            <button type="button" onClick={() => setPhoneOpen(false)} aria-label={lang === "PL" ? "Zamknij" : lang === "DE" ? "Schließen" : "Close"} className="p-3"><X size={20} /></button>
+          </div>
+          <div className="mt-3 grid grid-cols-2 gap-3 text-sm">
+            <a href="tel:+48536530283" className="flex min-h-12 items-center justify-center gap-2 bg-primary px-3 text-primary-foreground font-semibold"><Phone size={16} />{lang === "PL" ? "Zadzwoń" : lang === "DE" ? "Anrufen" : "Call"}</a>
+            <Link to="/kontakt" onClick={() => setPhoneOpen(false)} className="flex min-h-12 items-center justify-center border border-border px-3">{t("nav_contact")}</Link>
+          </div>
+        </div>
+      )}
+
       {open && (
-        <div className="md:hidden border-t border-border bg-background">
+        <div id="mobile-navigation" className="md:hidden border-t border-border bg-background">
           <nav className="container-x flex flex-col py-4 gap-3 text-sm uppercase tracking-wider">
             {nav.map((n) => (
               <Link

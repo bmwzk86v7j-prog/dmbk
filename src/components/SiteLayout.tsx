@@ -6,7 +6,7 @@ import { ImageLightbox } from "./ImageLightbox";
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground">
+    <div className="site-shell min-h-screen flex flex-col bg-background text-foreground">
       <PageTranslator />
       <SiteHeader />
       <ImageLightbox>

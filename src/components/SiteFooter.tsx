@@ -20,7 +20,6 @@ export function SiteFooter() {
           <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-3">{t("footer_nav")}</h4>
           <ul className="space-y-2 text-sm">
             <li><Link to="/produkty" className="hover:text-primary">{t("nav_products")}</Link></li>
-            <li><Link to="/galeria" className="hover:text-primary">{t("nav_gallery")}</Link></li>
             <li><Link to="/wycena" className="hover:text-primary">{t("nav_quote")}</Link></li>
             <li><Link to="/kontakt" className="hover:text-primary">{t("nav_contact")}</Link></li>
           </ul>

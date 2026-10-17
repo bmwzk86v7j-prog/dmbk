@@ -43,9 +43,9 @@ function Index() {
 
   return (
     <SiteLayout>
-      <section className="relative overflow-hidden border-b border-border">
+      <section className="home-hero relative overflow-hidden border-b border-border">
         <div className="absolute inset-0 grain" aria-hidden />
-        <div className="container-x relative grid lg:grid-cols-2 gap-10 lg:gap-16 items-center py-20 lg:py-28">
+        <div className="home-hero-grid container-x relative grid lg:grid-cols-2 gap-10 lg:gap-16 items-center py-20 lg:py-28">
           <div className="fade-up">
             <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-primary">
               <span className="h-px w-8 bg-primary" /> {t("home_kicker")}
@@ -59,7 +59,7 @@ function Index() {
             <p className="mt-6 text-sm uppercase tracking-widest text-muted-foreground">
               {t("home_categories")}
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="hero-actions mt-8 flex flex-wrap gap-3">
               <Link
                 to="/produkty"
                 className="group inline-flex items-center gap-2 bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-wider text-primary-foreground transition-transform hover:-translate-y-0.5"
@@ -76,7 +76,7 @@ function Index() {
             </div>
           </div>
 
-          <div className="relative fade-up">
+          <div className="hero-visual relative fade-up">
             <div className="absolute -inset-4 bg-primary/10 blur-3xl" aria-hidden />
             <img
               src={heroImg}
@@ -90,7 +90,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="border-b border-border bg-card">
+      <section className="home-features border-b border-border bg-card">
         <div className="container-x grid grid-cols-2 lg:grid-cols-4">
           {features.map((f) => (
             <div key={f.title} className="p-6 lg:p-8 border-r last:border-r-0 border-border">
@@ -102,7 +102,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="container-x py-20">
+      <section className="home-products container-x py-20">
         <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
           <div>
             <span className="text-xs uppercase tracking-[0.25em] text-primary">{t("home_section_kicker")}</span>
@@ -112,7 +112,7 @@ function Index() {
             {t("home_catalog_link")} <ArrowRight size={14} />
           </Link>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="home-category-grid grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {categories.map((c) => (
             <Link
               key={c.title}

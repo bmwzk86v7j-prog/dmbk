@@ -93,13 +93,14 @@ function BalastGroupPage() {
             <img src={activeImage} alt={`Balast DMBK ${group.label}`} className="h-full w-full object-contain" />
           </div>
           {group.images.length > 1 && (
-            <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3">
+            <div className="product-thumbnails mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3">
               {group.images.map((image, index) => (
                 <button
                   key={image}
                   type="button"
                   onClick={() => setSelectedImage(index)}
                   className={`aspect-[16/10] overflow-hidden border bg-black transition-colors ${selectedImage === index ? "border-primary" : "border-border hover:border-primary/60"}`}
+                  aria-pressed={selectedImage === index}
                   aria-label={`Pokaż ujęcie ${index + 1}`}
                 >
                   <img src={image} alt="" className="h-full w-full object-cover" />

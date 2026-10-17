@@ -2,8 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Check, ChevronRight } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
 import roofImg1 from "@/assets/konstrukcja-dachowa-01.jpg";
-import roofImg2 from "@/assets/konstrukcja-dachowa-02.jpg";
-import roofImg3 from "@/assets/konstrukcja-dachowa-03.jpg";
+import roofImg2 from "@/assets/konstrukcja-dachowa-02-clean.png";
+import roofImg3 from "@/assets/konstrukcja-dachowa-03-clean.png";
 
 export const Route = createFileRoute("/produkty/stalowe-konstrukcje-dachowe")({
   head: () => ({
